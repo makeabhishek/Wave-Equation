@@ -1,9 +1,12 @@
 Wave generates with particle vibration. One should take a note that vibration and simple harmonic motion is not a wave. Wave only occurs when there is transfer of energy from one particle to other.
 
 The wave equation is a second-order, partial differential equation (PDE) in which the $u$ (unknown: displacement or presure) satisfies:
+
 **The 1-D acoustic wave equation**
 $$\frac{\partial^2 u}{\partial t^2}= v^2 \frac{\partial^2 u}{\partial x^2} $$
+where $t$ is time, $x$ is space and $v$ is the wave speed.
 
+Wave equation can be solved numerically by space and time discretisation,
 **The 2-D acoustic wave equation**
 $$\frac{\partial^2 u}{\partial t^2}= \frac{k^2}{\rho^2}\bigg[ \rho \nabla \cdot \bigg(\frac{1}{rho} \nabla u\bigg) \bigg] + f $$
 
