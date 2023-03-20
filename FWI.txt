@@ -1,0 +1,9 @@
+# Full-waveform inversion, 
+
+## Part 1: Forward modeling
+
+
+## Part 2: Adjoint modeling
+
+
+## Part 3: Optimization
