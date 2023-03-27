@@ -45,14 +45,14 @@ In another form, the acoustic wave equation can be written in terms of the squar
 
 $$m{\frac {d^{2}u(t,x,y)}{dt^{2}}}-\Delta u(t,x,y)+\eta {\frac {du(t,x,y)}{dt}}=q(t,x,y;x_{s},y_{s})$$
 
-where, $q(t,x,y;x_{s},y_{s})$ is the seismic source, located at $(x_{s},y_{s})$ and $\eta (x,y)$ is a space-dependent dampening parameter for the absorbing boundary layer (used to absorb waves in simulation/modeling) and $\Delta$ is the Laplace operator (a second-order differential operator in the n-dimensional Euclidean space) $\Delta f = \sum _{i=1}^{n}{\frac {\partial^{2}f}{\partial x_{i}^2}}$.
+where, $q(t,x,y;x_{s},y_{s})$ is the seismic source, located at $(x_{s},y_{s})$ and $\eta (x,y)$ is a space-dependent dampening parameter for the absorbing boundary layer (used to absorb waves in simulation/modeling) and $\Delta$ is the Laplace operator (a second-order differential operator in the n-dimensional Euclidean space) $\Delta f = \sum_{i=1}^{n}{\frac{\partial^{2}f}{\partial x_{i}^2}}$.
 
 ### 2D adjoint acoustic wave equation [Ref](https://slimgroup.github.io/Devito-Examples/tutorials/TLE_Adjoint/ "text title")
 Adjoint wave equations are a main component in seismic inversion algorithms and are required for computing gradients of both linear and non-linear objective functions. To ensure stability of the adjoint modeling scheme and the expected convergence of inversion algorithms, it is very important that the adjoint wave equation is in fact the adjoint (transpose) of the forward wave equation. The derivation of the adjoint wave equation in the acoustic case is simple, as it is self-adjoint if we ignore the absorbing boundaries for the moment. the data residual $\delta d(x,y,t,x_{r},y_{r})$, located at $x_{r},y_{r}$ (receiver locations) as the adjoint source, the continuous adjoint wave equation is given by:
 
 $$ m(x,y){\frac {{d}^{2}v(t,x,y)}{{d}t^{2}}}-\Delta v(t,x,y)-{\mathit {\mathrm {H} }}(t,x,y)=\delta d(t,x,y;x_{r},y_{r}) $$
 
-The adjoint acoustic wave equation is equivalent to the forward equation with the exception of the damping term ${\mathit {\mathrm {H} }}(t,x,y)=\eta (x,y)dv(t,x,y)/dt$, which contains a first time derivative and therefore has a change of sign in its adjoint. (A second derivative matrix is the same as its transpose, whereas a first derivative matrix is equal to its negative transpose and vice versa.)
+The adjoint acoustic wave equation is equivalent to the forward equation with the exception of the damping term ${{\mathrm{H} }}(t,x,y)=\eta (x,y)dv(t,x,y)/dt$, which contains a first time derivative and therefore has a change of sign in its adjoint. (A second derivative matrix is the same as its transpose, whereas a first derivative matrix is equal to its negative transpose and vice versa.)
 
 ## The 3-D acoustic wave equation
 
