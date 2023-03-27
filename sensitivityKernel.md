@@ -1,3 +1,17 @@
+# Useful Concepts and Definitions (misfit, adjoint sources, and kernels)
+
+- _`Adjoint simulation`_: simulates the interaction of a forward and adjoint wavefield.
+  - _`Forward wavefield`_: the seismic wavefield propagated from the source location
+  - _`Adjoint wavefield`_: a wavefield that propagates from receiver locations, whos time-dependent amplitude is controlled by adjoint sources
+- _`Adjoint source`_: time-reversed waveforms input at receiver locations. Typically they contain information about the forward wavefield (sensitivity kernels), or data-synthetic misfit (misfit kernel)  
+- _`Kernel`_: The volumetric integration of the interaction between the forward and adjoint wavefields, highlighting regions/parameters of the model that have an effect on the wavefield or misfit  
+
+### Adjoint wavefield propagates adjoint sources from each receiver simultaneously (i.e., **1** adjoint simulation per event)
+- Each component of each receiver therefore is capable of generating an adjoint source  
+- Adjoint sources can be selectively windowed to isolate certain parts of the synthetic seismogram 
+- The adjoint source will be fed in at receiver locations during an adjoint simulation  
+- The resulting adjoint wavefield interacts with the forward wavefield to illuminate parts of the model that the misfit function is sensitive to  
+
 # Sensitivity Kernel
 
 + The sensitivity kernel is an expression that relates a change in the acoustic field between a source and a receiver, to a local change in the medium property [1].
