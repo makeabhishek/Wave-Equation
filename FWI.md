@@ -33,3 +33,10 @@ $$m_{k+1} = m_k + \alpha_kH_k^{-1} R[-g_k]$$
 ## Part 3: Optimization
 
 ### Non-linear optimisation methods
+
+
+
+References:
+[1] Thrastarson, Solvi, Dirk-Philip van Herwaarden, and Andreas Fichtner. "Inversionson: fully automated seismic waveform inversions." (2021).
+[2]
+[3]
