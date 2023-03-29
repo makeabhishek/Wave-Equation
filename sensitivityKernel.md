@@ -38,7 +38,9 @@
 + This means the sensitivity kernels solve the forward problem of predicting the effect of a medium change on the observable and are thus a tool to localize the perturbations in the Earth based on seismogram changes [3].
 + 
 
-
+**Model parameters and discretisation**
+lets assume we have a square region of interest for which we want to perform inversion. 
+We discretize the model into grids of 128 by 128 in the $X$ and $Y$ direction, which leads to 16,384 model parameters. 
 
 
 
