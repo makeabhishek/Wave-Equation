@@ -1,4 +1,9 @@
 # Full-waveform inversion
+Few Points to get an essense of the FWI
+  + The gradient of the FWI objective function is required to find the optimal solution (step for a optimisation problem); \
+  + 
+
+
 Waveform-inversion is an optimisation procedure, where we try to fit the data and compare observed (experimental or field) and synthetic data (simulated or modelled) to image the internal structure of the object. Data can be fit using a quantitative measure of goodness between observations and synthetics. The inverse problem can be formulated in the form of misfit function (or error function) and the aim is to minimize the error or misfit, using numerical optimisation technique.  The choice of waveform misfit is an important part of inversion and optimisation, and there are multiple options available
 [e.g. Tromp et al., 2005, Fichtner et al., 2008, Bozdag et al., 2011]. We can define an objective function $[\chi(m)]$, where $\chi$ can represent any waveform misfit function. As required to minimise the objective function, each iteration requires computing the gradient of misfit function $\chi$ with respect to the model parameters $m$, which, using the chain rule, can be written as
 
