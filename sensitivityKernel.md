@@ -22,7 +22,7 @@ Example: \
 ### Why do we need to study operators
 Lets assume a Burgers equation
 $\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = v\frac{\partial^2 u}{\partial x^2}$ \
-$x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If we change the parameter there willl be different problem. So is there a way to make this general, which can be implement for any problem. It can be done by operator, for example derivative operator, which takes the function and perform operation 
+$x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If we change the parameter there willl be different problem. So is there a way to make this general, which can be implement for any problem. It can be done by operator, for example derivative operator, which takes the function and perform operation.
 # Useful Concepts and Definitions (misfit, adjoint sources, and kernels)
 - _`Fréchet derivatives, Fréchet kernels or sensitivity kernels'_: Functional derivatives of seismic measurement with respect to structural model parameters [4]. Seismic measurement could be misfit funciton $(\chi (m))$ for the inverse problem becuase it is also a measurment (data), calcualted based on synthetic and observation data $\bigg (\frac{\partial \chi}{\partial m}\bigg )$, also called gradient of misfit function.
 - _`Misfit`_: Misfit (objective) function is a metric to characterize the distance between observations and numerical calculations. Favored misfit function in exploration seismology is waveform difference. Misfit functions defines how the kernels generated, which exactly defines how model updated. 
@@ -39,7 +39,6 @@ $x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If w
 - Variation of a function/total variation: A numerical characteristic of functions of one or more real variables which is connected with differentiability properties.
 - 
 
-
  - **The adjoint state method** is a numerical method for efficiently computing the gradient of a function or operator in a numerical optimization problem. 
     - Adjoint state techniques allow the use of integration by parts, resulting in a form which explicitly contains the physically interesting quantity. An adjoint state equation is introduced, including a new unknown variable. 
     - The adjoint method formulates the gradient of a function towards its parameters in a constraint optimization form. By using the dual form of this constraint optimization problem, it can be used to calculate the gradient very fast. 
@@ -53,7 +52,19 @@ $x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If w
 - The adjoint source will be fed in at receiver locations during an adjoint simulation  
 - The resulting adjoint wavefield interacts with the forward wavefield to illuminate parts of the model that the misfit function is sensitive to  
 
+
 # Sensitivity Kernel
+
+### What does "kernel" represent in integral kernel?
+In algebra, the term kernel of a homomorphism refers to the inverse image of the zero element. In functional analysis, there is the term "integral kernel". Examples are Possion kernel, Dirichlet kernel etc. \
+In simple language it denotes the inner part. According to dictionary, kernel is "the important, central part of anything". (This is the third meaning in Chambers Concise Dictionary). From O.E. cyrnel=corn,grain + dimin. suffix -el). \
+An integral kernel is, of course, **an integrable generalization** $𝐾(𝑥,𝑦)$ of a matrix $𝑀_{𝑗,𝑘}$. You could very loosely call this a "kernel" in the sense of the "core" of the formula for a integral linear operator.  \
+
+#### Fredholm integral equation
+A Fredholm equation is an integral equation in which the term containing the kernel function (defined below) has constants as integration limits. An inhomogeneous Fredholm equation of the first kind is written as \
+                  $g(t)=\int _{a}^{b}K(t,s)f(s)\,\mathrm ds$ \
+ and the problem is, given the continuous kernel function $K$ and the function $g$, to find the function $f$. Fredholm equations arise naturally in the theory of signal processing, for example as the famous spectral concentration problem popularized by David Slepian. The operators involved are the same as linear filters. They also commonly arise in linear forward modeling and inverse problems. \
+
 
 + The sensitivity kernel is an expression that relates a change in the acoustic field between a source and a receiver, to a local change in the medium property [1].
 
