@@ -1,3 +1,28 @@
+# Introduction
+## Function and operators:
+
+
+### Function: $R^{d1} \rightarrow R^{d2}$, maps between vector spaces
+Function is a mathematical struture that maps between vector spaces,
+Example:
+  + let $f_1(x) = sin(x)$; for $x \in R$ \
+        $z=f_1(x) = sin(x) \in [0:1]$. It means if we input N, real number (R), than we will get the numbers between 0 and 1. \
+In other words $f_1$ maps $R \rightarrow[0,1]$. It means a function takes a number and output another number. \
+  + universal apprixmation theorem
+  + Image classification
+
+### Operator: mapping from one function to other function. 
+  + maps between infinite-dimensional function space: function ($\infty$-dim) \rightarrow function($\infty$-dim) or $G(f_1(x)) = f_2(x)$ \
+Example: \
+  + Derivative operator $\rightarrow \frac{d}{dx}$ (local): It transforms a function $f_1$ into a funciton $f_2$:
+      + Let $f_1(x) = sin(x)$ then we apply operator: $f_2=\frac{d f_1(x)}{dx}=\frac{d}{dx}sin(x)=cos(x)$, which is a funciton. \
+      + $x(t)\rightarrow x'(t)$. mapping one fucntion to other function.
+  + Integral (global): $x(t) \rightarrow \int K(s,t) x(s)ds$, this is integral of x with respect to kernel K. Here, $K(s,t)$ is kernel,
+
+### Why do we need to study operators
+Lets assume a Burgers equation
+$\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = v\frac{\partial^2 u}{\partial x^2}$ \
+$x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If we change the parameter there willl be different problem. So is there a way to make this general, which can be implement for any problem. It can be done by operator, for example derivative operator, which takes the function and perform operation 
 # Useful Concepts and Definitions (misfit, adjoint sources, and kernels)
 - _`Fréchet derivatives, Fréchet kernels or sensitivity kernels'_: Functional derivatives of seismic measurement with respect to structural model parameters [4]. Seismic measurement could be misfit funciton $(\chi (m))$ for the inverse problem becuase it is also a measurment (data), calcualted based on synthetic and observation data $\bigg (\frac{\partial \chi}{\partial m}\bigg )$, also called gradient of misfit function.
 - _`Misfit`_: Misfit (objective) function is a metric to characterize the distance between observations and numerical calculations. Favored misfit function in exploration seismology is waveform difference. Misfit functions defines how the kernels generated, which exactly defines how model updated. 
