@@ -1,7 +1,6 @@
 # Introduction
 ## Function and operators:
 
-
 ### Function: $R^{d1} \rightarrow R^{d2}$, maps between vector spaces
 Function is a mathematical struture that maps between vector spaces,
 Example:
@@ -24,11 +23,6 @@ Lets assume a Burgers equation
 $\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = v\frac{\partial^2 u}{\partial x^2}$ \
 $x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If we change the parameter there willl be different problem. So is there a way to make this general, which can be implement for any problem. It can be done by operator, for example derivative operator, which takes the function and perform operation.
 
-### What does "kernel" represent in integral kernel?
-In algebra, the term kernel of a homomorphism refers to the inverse image of the zero element. In functional analysis, there is the term "integral kernel". Examples are Possion kernel, Dirichlet kernel etc. \
-In simple language it denotes the inner part. According to dictionary, kernel is "the important, central part of anything". (This is the third meaning in Chambers Concise Dictionary). From O.E. cyrnel=corn,grain + dimin. suffix -el). \
-An integral kernel is, of course, **an integrable generalization** $𝐾(𝑥,𝑦)$ of a matrix $𝑀_{𝑗,𝑘}$. You could very loosely call this a "kernel" in the sense of the "core" of the formula for a integral linear operator.  \
-
 ## Integral equations: 
   + An integral equation is an equation in which an unknown function to be detemrined under one or more integral sign. If the derivative of function are involved, it is called an intero-differential equation. An equation of the form: \
 $v(s)\cdot u(x) = f(x) + \lambda \int_{a} k(x,t) u(t)dt$ is called Linear Integral equation, where upper limit may be either variabkle $x$ or fixed and $u(x)$ is unknown function $v(x), f(x)$ and the kernel of the integral equation $k(x,t)$ are known fucntion; $\lambda$ is a non-zero or complex parameter. \
@@ -39,6 +33,11 @@ $v(s)\cdot u(x) = f(x) + \lambda \int_{a} k(x,t) u(t)dt$ is called Linear Integr
  Further if in above integral equation upper limit is variable (for example $\int_{a}^{x}$) and lower limit is constant, then these equations are called **Volterra equation** of 1st and 2nd kind. On the other hand if both upper limit and lower limits are constant (example $\int_{a}^{b}$), it is known as **Fredholm interal equation** of 1st and 2nd kind. 
  + When $f(x) =0$ in above equations, these are called **homogeneous integral equations**. 
  
+ ### What does "kernel" represent in integral kernel?
+In algebra, the term kernel of a homomorphism refers to the inverse image of the zero element. In functional analysis, there is the term "integral kernel". Examples are Possion kernel, Dirichlet kernel etc. \
+In simple language it denotes the inner part. According to dictionary, kernel is "the important, central part of anything". (This is the third meaning in Chambers Concise Dictionary). From O.E. cyrnel=corn,grain + dimin. suffix -el). \
+An integral kernel is, of course, **an integrable generalization** $𝐾(𝑥,𝑦)$ of a matrix $𝑀_{𝑗,𝑘}$. You could very loosely call this a "kernel" in the sense of the "core" of the formula for a integral linear operator.  \
+
 #### Kerenel and Different kinds of Kernels in Integral Equations -
 The function $k(x,t)$ is known as kernel of the integral equation.
   + Symmetric kernel: A kernel $k(x,t)$ is said to be symmetric or hermitian, if $k(x,t)=k(t,x)$, where $k$ stands for complex conjugate of $k$. In case of symmetric kernel $k(x,t)$, $\rightarrow k(x,t)=k(t,x)$
