@@ -23,6 +23,50 @@ Example: \
 Lets assume a Burgers equation
 $\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = v\frac{\partial^2 u}{\partial x^2}$ \
 $x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If we change the parameter there willl be different problem. So is there a way to make this general, which can be implement for any problem. It can be done by operator, for example derivative operator, which takes the function and perform operation.
+
+### What does "kernel" represent in integral kernel?
+In algebra, the term kernel of a homomorphism refers to the inverse image of the zero element. In functional analysis, there is the term "integral kernel". Examples are Possion kernel, Dirichlet kernel etc. \
+In simple language it denotes the inner part. According to dictionary, kernel is "the important, central part of anything". (This is the third meaning in Chambers Concise Dictionary). From O.E. cyrnel=corn,grain + dimin. suffix -el). \
+An integral kernel is, of course, **an integrable generalization** $𝐾(𝑥,𝑦)$ of a matrix $𝑀_{𝑗,𝑘}$. You could very loosely call this a "kernel" in the sense of the "core" of the formula for a integral linear operator.  \
+
+## Integral equations: 
+  + An integral equation is an equation in which an unknown function to be detemrined under one or more integral sign. If the derivative of function are involved, it is called an intero-differential equation. An equation of the form: \
+$v(s)\cdot u(x) = f(x) + \lambda \int_{a} k(x,t) u(t)dt$ is called Linear Integral equation, where upper limit may be either variabkle $x$ or fixed and $u(x)$ is unknown function $v(x), f(x)$ and the kernel of the integral equation $k(x,t)$ are known fucntion; $\lambda$ is a non-zero or complex parameter. \
+
+### Types of Integral Equation
+  (i) When $v(x)=0$, then equation reduces to $f(x) + \lambda \int_{a} k(x,t) dt =0$, whcih is known as Linear integral equation of the first kind \
+  (ii) When $v(x) =1$, then equation reduces to $u(x) = f(x) + \lambda \int_a k(x,t)u(t) dt$, which is known as Linear integral equation of the Second kind. \ 
+ Further if in above integral equation upper limit is variable (for example $\int_{a}^{x}$) and lower limit is constant, then these equations are called **Volterra equation** of 1st and 2nd kind. On the other hand if both upper limit and lower limits are constant (example $\int_{a}^{b}$), it is known as **Fredholm interal equation** of 1st and 2nd kind. 
+ + When $f(x) =0$ in above equations, these are called **homogeneous integral equations**. 
+ 
+#### Different kinds of Kernels in Integral Equations -
+  + Symmetric kernel,
+  + Resolvent Kernel,
+  + Iterated kernel,
+  + Degenerate kernels
+
+#### Fredholm integral equation
+A Fredholm equation is an integral equation in which the term containing the kernel function (defined below) has constants as integration limits. An inhomogeneous Fredholm equation of the first kind is written as \
+                  $g(t)=\int _{a}^{b}K(t,s)f(s)\,\mathrm ds$ \
+ and the problem is, given the continuous kernel function $K$ and the function $g$, to find the function $f$. Fredholm equations arise naturally in the theory of signal processing, for example as the famous spectral concentration problem popularized by David Slepian. The operators involved are the same as linear filters. They also commonly arise in linear forward modeling and inverse problems. \
+
+# Sensitivity Kernel
++ The sensitivity kernel is an expression that relates a change in the acoustic field between a source and a receiver, to a local change in the medium property [1].
+
++ Based on the adjoint-state (or Lagrangian multiplier) method, sensitivity kernels in FWI can be constructed by cross-correlating the forward and adjoint wavefields, which avoids direct calculation of the Jacobian matrices for (very) large-scale inversion practices (Plessix 2006; Métivier et al. 2013) [2].
+
++ Sensitivity kernels of the coda provide the connection between a localized spatial perturbation of some propagation properties in the medium (e.g. wave speed, attenuation, scattering strength) and the changes of a certain waveform property that we observe in the coda.
++ This means the sensitivity kernels solve the forward problem of predicting the effect of a medium change on the observable and are thus a tool to localize the perturbations in the Earth based on seismogram changes [3].
++ 
+
+**Model parameters and discretisation**
+lets assume we have a square region of interest for which we want to perform inversion. 
+We discretize the model into grids of 128 by 128 in the $X$ and $Y$ direction, which leads to 16,384 model parameters. 
+
+
+
+
+
 # Useful Concepts and Definitions (misfit, adjoint sources, and kernels)
 - _`Fréchet derivatives, Fréchet kernels or sensitivity kernels'_: Functional derivatives of seismic measurement with respect to structural model parameters [4]. Seismic measurement could be misfit funciton $(\chi (m))$ for the inverse problem becuase it is also a measurment (data), calcualted based on synthetic and observation data $\bigg (\frac{\partial \chi}{\partial m}\bigg )$, also called gradient of misfit function.
 - _`Misfit`_: Misfit (objective) function is a metric to characterize the distance between observations and numerical calculations. Favored misfit function in exploration seismology is waveform difference. Misfit functions defines how the kernels generated, which exactly defines how model updated. 
@@ -51,34 +95,6 @@ $x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If w
 - Adjoint sources can be selectively windowed to isolate certain parts of the synthetic seismogram 
 - The adjoint source will be fed in at receiver locations during an adjoint simulation  
 - The resulting adjoint wavefield interacts with the forward wavefield to illuminate parts of the model that the misfit function is sensitive to  
-
-
-# Sensitivity Kernel
-
-### What does "kernel" represent in integral kernel?
-In algebra, the term kernel of a homomorphism refers to the inverse image of the zero element. In functional analysis, there is the term "integral kernel". Examples are Possion kernel, Dirichlet kernel etc. \
-In simple language it denotes the inner part. According to dictionary, kernel is "the important, central part of anything". (This is the third meaning in Chambers Concise Dictionary). From O.E. cyrnel=corn,grain + dimin. suffix -el). \
-An integral kernel is, of course, **an integrable generalization** $𝐾(𝑥,𝑦)$ of a matrix $𝑀_{𝑗,𝑘}$. You could very loosely call this a "kernel" in the sense of the "core" of the formula for a integral linear operator.  \
-
-#### Fredholm integral equation
-A Fredholm equation is an integral equation in which the term containing the kernel function (defined below) has constants as integration limits. An inhomogeneous Fredholm equation of the first kind is written as \
-                  $g(t)=\int _{a}^{b}K(t,s)f(s)\,\mathrm ds$ \
- and the problem is, given the continuous kernel function $K$ and the function $g$, to find the function $f$. Fredholm equations arise naturally in the theory of signal processing, for example as the famous spectral concentration problem popularized by David Slepian. The operators involved are the same as linear filters. They also commonly arise in linear forward modeling and inverse problems. \
-
-
-+ The sensitivity kernel is an expression that relates a change in the acoustic field between a source and a receiver, to a local change in the medium property [1].
-
-+ Based on the adjoint-state (or Lagrangian multiplier) method, sensitivity kernels in FWI can be constructed by cross-correlating the forward and adjoint wavefields, which avoids direct calculation of the Jacobian matrices for (very) large-scale inversion practices (Plessix 2006; Métivier et al. 2013) [2].
-
-+ Sensitivity kernels of the coda provide the connection between a localized spatial perturbation of some propagation properties in the medium (e.g. wave speed, attenuation, scattering strength) and the changes of a certain waveform property that we observe in the coda.
-+ This means the sensitivity kernels solve the forward problem of predicting the effect of a medium change on the observable and are thus a tool to localize the perturbations in the Earth based on seismogram changes [3].
-+ 
-
-**Model parameters and discretisation**
-lets assume we have a square region of interest for which we want to perform inversion. 
-We discretize the model into grids of 128 by 128 in the $X$ and $Y$ direction, which leads to 16,384 model parameters. 
-
-
 
 
 
