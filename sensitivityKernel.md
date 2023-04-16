@@ -39,11 +39,13 @@ $v(s)\cdot u(x) = f(x) + \lambda \int_{a} k(x,t) u(t)dt$ is called Linear Integr
  Further if in above integral equation upper limit is variable (for example $\int_{a}^{x}$) and lower limit is constant, then these equations are called **Volterra equation** of 1st and 2nd kind. On the other hand if both upper limit and lower limits are constant (example $\int_{a}^{b}$), it is known as **Fredholm interal equation** of 1st and 2nd kind. 
  + When $f(x) =0$ in above equations, these are called **homogeneous integral equations**. 
  
-#### Different kinds of Kernels in Integral Equations -
-  + Symmetric kernel,
-  + Resolvent Kernel,
-  + Iterated kernel,
-  + Degenerate kernels
+#### Kerenel and Different kinds of Kernels in Integral Equations -
+The function $k(x,t)$ is known as kernel of the integral equation.
+  + Symmetric kernel: A kernel $k(x,t)$ is said to be symmetric or hermitian, if $k(x,t)=k(t,x)$, where $k$ stands for complex conjugate of $k$. In case of symmetric kernel $k(x,t)$, $\rightarrow k(x,t)=k(t,x)$
+      +Example: $x^2 + t^2, (x-t)^2, sin(x+t)$, etc., are all symetric kernel. $xt^2$ is not symmetric kernel.
+  + Resolvent Kernel or reciprocal kernel: $u(x) = f(x) + \lambda \int_{a}^{b}k(x,t)u(t) dt$
+  + Iterated kernel: Consider Fredhold integral equation of 2nd kind $u(x) = f(x) + \lambda \int_{a}^{b}k(x,t) u(t)dt$. Then, the iterated kernels $k_n(x,t), n=1,2,3,...$ are defined as follows, $k_1(x,t)=k(x,t)$
+  + Separable or Degenerate kernels: A kernel $k(x,t)$ is called separable, if it can. be expressed as the sum of a finite number of terms, each of which the product of a function of $x$ and a function of $t$ i.e., $k(x,t) = \sum_{i=1}^{n}f_i(x) g_i(t)$, where $n$ is finite and $f,g$ are linearly independent sets of funtion and $k(x,t) = \int_{a}^{b}k(x,z)k_{n-1}(z,t)dz$, n=1,2,3,...
 
 #### Fredholm integral equation
 A Fredholm equation is an integral equation in which the term containing the kernel function (defined below) has constants as integration limits. An inhomogeneous Fredholm equation of the first kind is written as \
