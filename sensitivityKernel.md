@@ -30,8 +30,9 @@ $x \in [-1,1]$ and $t \in [0,1]$ ; diffucion coefficient $\nu = 0.01/ \pi$. If w
 ### Types of Integral Equation
   (i) When $v(x)=0$, then equation reduces to $f(x) + \lambda \int_{a} k(x,t) dt =0$, whcih is known as Linear integral equation of the first kind \
   (ii) When $v(x) =1$, then equation reduces to $u(x) = f(x) + \lambda \int_a k(x,t)u(t) dt$, which is known as Linear integral equation of the Second kind. \ 
-  + Further if in above integral equation upper limit is variable (for example $\int_{a}^{x}$) and lower limit is constant, then these equations are called **Volterra equation** of 1st and 2nd kind. On the other hand if both upper limit and lower limits are constant (example $\int_{a}^{b}$), it is known as **Fredholm interal equation** of 1st and 2nd kind. 
- + When $f(x) =0$ in above equations, these are called **homogeneous integral equations**. 
+  + Further if in above integral equation upper limit is variable (for example $\int_{a}^{x}$) and lower limit is constant, then these equations are called **Volterra equation** of 1st and 2nd kind. 
+  + If both upper limit and lower limits are constant (example $\int_{a}^{b}$), it is known as **Fredholm interal equation** of 1st and 2nd kind. 
+  + When $f(x) =0$ in above equations, these are called **homogeneous integral equations**. 
  
  ### What does "kernel" represent in integral kernel?
   + In algebra, the term kernel of a homomorphism refers to the inverse image of the zero element. In functional analysis, there is the term "integral kernel". Examples are Possion kernel, Dirichlet kernel etc. \
@@ -49,16 +50,13 @@ The function $k(x,t)$ is known as kernel of the integral equation.
 #### Fredholm integral equation
   + A Fredholm equation is an integral equation in which the term containing the kernel function (defined below) has constants as integration limits.   + An inhomogeneous Fredholm equation of the first kind is written as \
                   $g(t)=\int _{a}^{b}K(t,s)f(s)\,\mathrm ds$ \
- and the problem is, given the continuous kernel function $K$ and the function $g$, to find the function $f$. Fredholm equations arise naturally in the theory of signal processing, for example as the famous spectral concentration problem popularized by David Slepian. The operators involved are the same as linear filters. They also commonly arise in linear forward modeling and inverse problems. \
+ and the problem is, given the continuous kernel function $K$ and the function $g$, to find the function $f$. Fredholm equations arise naturally in the theory of signal processing, for example as the famous spectral concentration problem popularized by David Slepian. The operators involved are the same as _linear filters_. They also commonly arise in linear forward modeling and inverse problems. \
 
 # Sensitivity Kernel
-+ The sensitivity kernel is an expression that relates a change in the acoustic field between a source and a receiver, to a local change in the medium property [1].
-
-+ Based on the adjoint-state (or Lagrangian multiplier) method, sensitivity kernels in FWI can be constructed by cross-correlating the forward and adjoint wavefields, which avoids direct calculation of the Jacobian matrices for (very) large-scale inversion practices (Plessix 2006; Métivier et al. 2013) [2].
-
++ The sensitivity kernel is an expression that relates a change in the acoustic field between a source and a receiver, to a local change in the medium property [1]. \
++ Based on the adjoint-state (or Lagrangian multiplier) method, sensitivity kernels in FWI can be constructed by cross-correlating the forward and adjoint wavefields, which avoids direct calculation of the Jacobian matrices for (very) large-scale inversion practices (Plessix 2006; Métivier et al. 2013) [2]. \
 + Sensitivity kernels of the coda provide the connection between a localized spatial perturbation of some propagation properties in the medium (e.g. wave speed, attenuation, scattering strength) and the changes of a certain waveform property that we observe in the coda.
 + This means the sensitivity kernels solve the forward problem of predicting the effect of a medium change on the observable and are thus a tool to localize the perturbations in the Earth based on seismogram changes [3].
-+ 
 
 **Model parameters and discretisation**
 lets assume we have a square region of interest for which we want to perform inversion. 
