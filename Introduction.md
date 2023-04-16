@@ -19,8 +19,10 @@ So we have two data \
   (1). Observed or experimental or field data $(u_{obs})$: \
   (2). Synthetic or modelled data $(u_{mod})$: \
   (3). Data residue $(\delta u = u_{mod} - u_{obs})$: \
-![image](https://user-images.githubusercontent.com/47937684/232275625-cb80c303-d436-4931-aa66-4537fad6ac0c.png)
+  
+  <img width="401" alt="Screenshot 2023-04-16 at 12 15 37 AM" src="https://user-images.githubusercontent.com/47937684/232332519-34dd9af5-178d-43c6-ba50-f923d4827e1b.png">
 
+  
 So based on data residue, we can quantify how well our modellled data explain the field data. The problem with this method is that we have to visually inspect the residuals fro every 
 source-receiver pair. Hoever, if can use a measure which can condense this daa residue in some quantitative numbers.
 One way to measure data residues is called $L2-norm$ (Residual Energy) of the data residual.
