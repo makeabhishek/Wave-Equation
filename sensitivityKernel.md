@@ -69,20 +69,19 @@ We discretize the model into grids of 128 by 128 in the $X$ and $Y$ direction, w
 
 
 # Useful Concepts and Definitions (misfit, adjoint sources, and kernels)
-- _`Fréchet derivatives, Fréchet kernels or sensitivity kernels'_: Functional derivatives of seismic measurement with respect to structural model parameters [4]. Seismic measurement could be misfit funciton $(\chi (m))$ for the inverse problem becuase it is also a measurment (data), calcualted based on synthetic and observation data $\bigg (\frac{\partial \chi}{\partial m}\bigg )$, also called gradient of misfit function.
-- _`Misfit`_: Misfit (objective) function is a metric to characterize the distance between observations and numerical calculations. Favored misfit function in exploration seismology is waveform difference. Misfit functions defines how the kernels generated, which exactly defines how model updated. 
+- **`Fréchet derivatives, Fréchet kernels or sensitivity kernels'**: Functional derivatives of seismic measurement with respect to structural model parameters [4]. Seismic measurement could be misfit funciton $(\chi (m))$ for the inverse problem becuase it is also a measurment (data), calcualted based on synthetic and observation data $\bigg (\frac{\partial \chi}{\partial m}\bigg )$, also called gradient of misfit function.
+- **`Misfit`**: Misfit (objective) function is a metric to characterize the distance between observations and numerical calculations. Favored misfit function in exploration seismology is waveform difference. Misfit functions defines how the kernels generated, which exactly defines how model updated. 
   -  envelop misfit function
   -  Double difference misfit function
  
-- _`Adjoint operator`_The adjoint operator provides an efficient way to numerically evaluate the gradient of a given misfit function
-- _`Adjoint simulation`_: simulates the interaction of a forward and adjoint wavefield.
-  - _`Forward wavefield`_: the seismic wavefield propagated from the source location
-  - _`Adjoint wavefield`_: a wavefield that propagates from receiver locations, whos time-dependent amplitude is controlled by adjoint sources
-- _`Adjoint source`_: time-reversed waveforms input at receiver locations. Typically they contain information about the forward wavefield (sensitivity kernels), or data-synthetic misfit (misfit kernel)  
-- _`Kernel`_: The volumetric integration of the interaction between the forward and adjoint wavefields, highlighting regions/parameters of the model that have an effect on the wavefield or misfit  
-- _'Inverse Problem'_: The problem of recovering suitable parameters (m) from a set of observations (d) is the associated inverse problem. $ G(m) = d$, where, $G$ is known as the design matrix, and a vector containing the unknowns.
+- **`Adjoint operator`** The adjoint operator provides an efficient way to numerically evaluate the gradient of a given misfit function
+- **`Adjoint simulation`**: simulates the interaction of a forward and adjoint wavefield.
+  - **`Forward wavefield`**: the seismic wavefield propagated from the source location
+  - **`Adjoint wavefield`**: a wavefield that propagates from receiver locations, whos time-dependent amplitude is controlled by adjoint sources
+- **`Adjoint source`**: time-reversed waveforms input at receiver locations. Typically they contain information about the forward wavefield (sensitivity kernels), or data-synthetic misfit (misfit kernel)  
+- **`Kernel`**: The volumetric integration of the interaction between the forward and adjoint wavefields, highlighting regions/parameters of the model that have an effect on the wavefield or misfit  
+- **'Inverse Problem'**: The problem of recovering suitable parameters (m) from a set of observations (d) is the associated inverse problem. $ G(m) = d$, where, $G$ is known as the design matrix, and a vector containing the unknowns.
 - Variation of a function/total variation: A numerical characteristic of functions of one or more real variables which is connected with differentiability properties.
-- 
 
  - **The adjoint state method** is a numerical method for efficiently computing the gradient of a function or operator in a numerical optimization problem. 
     - Adjoint state techniques allow the use of integration by parts, resulting in a form which explicitly contains the physically interesting quantity. An adjoint state equation is introduced, including a new unknown variable. 
