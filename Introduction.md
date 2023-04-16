@@ -1,3 +1,4 @@
+# Inversion 
 There are a lot of methods to obtain the velocity. A fundamantal method to obtain velocity of the medium is first arrival travel time tomography.
 However, the resolution of first arrival traveltime tomography is restricted by the size of the first Frenel zone. The first arraival traveltime 
 tomography can only reconstruct the long wavelength parts of the subsurface models. It cannot reconstruct the small parts.
