@@ -88,8 +88,10 @@ How to calculate the gradient of this Objective function w.r.t. given material a
   (+) Adjoint state gradient estimation in frequency domain [Pratt et al./ 1998, Plessix 2006] \
   (+) Adjoint state gradient estimation using perturbation theory [Tarantola, 2005, Mora 1987, Plessix 2006]. \
   
-Adjoint state method is a computationally chep method to calculate the gradient and this apraoch can be applied to other fields also.
+Adjoint state method is a computationally chep method to calculate the gradient and this apraoch can be applied to other fields also. \
  
+Unfortunatelly this Adjoint state method works for linear problem, however the real senarios are non-linear, so the adjoint state approach may not really work.\ 
+  (+) Global optimisation method can be used in non-linear case to implement FWI.
  
- 
- 
+ ## Lets consider 2D acosutic wave equation
+
