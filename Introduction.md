@@ -1,5 +1,5 @@
 # Inversion 
-There are a lot of methods to obtain the velocity or  from . A fundamantal method to obtain velocity of the medium is first arrival travel time tomography.
+There are a lot of methods to obtain the velocity or from . A fundamantal method to obtain velocity of the medium is first arrival travel time tomography.
 However, the resolution of first arrival traveltime tomography is restricted by the size of the first Frenel zone. The first arraival traveltime 
 tomography can only reconstruct the long wavelength parts of the subsurface models. It cannot reconstruct the small parts.
 The reason behind this is that we only consider pick the first arrival travel time and put them in non-linear problem to obtian velocity model. 
@@ -120,7 +120,7 @@ with \
   (+) q_s(x,z,T-t) = adjoint pressure wavefield also at each subsurface point but the time is reversed. \
   (+) $\sum_s$ = sum over all sources \
   (+) T = maximum time-trace recording time \
-We can see the gradient of the objective function at each subsurface points $\frac{\partial E(x,z)}{\partial m}$ w.r.t. model/material parameter $m$ at the subsurface point. We have second time derivative of forward pressure wavefield and we are multiplying it by adjoint wavefield at aeach subsurface points and at each time step. Then we sum over each time and sum for all sources. \ 
+We can see the gradient of the objective function at each subsurface points $\frac{\partial E(x,z)}{\partial m}$ w.r.t. model/material parameter $m$ at the subsurface point. We have second time derivative of forward pressure wavefield and we are multiplying it by adjoint wavefield at each subsurface points and at each time step. Actually, we perform zero-lag cross-correlation, we simply multiply both wavefields and integrate. Then we sum over each time and sum for all sources. 
 
 ## What are forward and adjoint wavefields? 
 ### Forward Wavefield [P_s(x,z,t)]: This can be easily computed by solving the acoustic wave equation 
@@ -145,17 +145,64 @@ So first, we are calculating forward wavefield $P_s(x,z,t)$ at each subsurface p
 So the differnece between the Forward and adjoint wavefield is only the source term in acoustic case. So $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$ equation is the fundamental part of the waveform inverison algorithm. We need to estimate the gradient of the objective function w.r.t. model parameters at each sub-surface points. 
 
 # Full-waveform Inversion\tomography algorithm
-(0) We have the observed data $P^{obs}$
-(1) For each source $f(x,z,t)$ solve the forward probelm for the current model $m_n$ to generate a synthetic dataset $P^{mod}$ (pressure wavefield at receiver positions only) and the wavefield $P^{mode}(x,z,t)$\
-(2) Calculate the data residual of A-scans\seismograms $\deltaP = P^{mod} - P^{obs}$\
+FWI is an iterative numerical optimisation method to mimisation of the data residue between synthetic and observed data and reconstruct high resolution image, at each iteration we have to perform follwoing six steps: \
+(0) We obtain the observed data $P^{obs}$
+(1) For each source $f(x,z,t)$ solve the forward probelm for the current model $m_n$ to generate a synthetic dataset $P^{mod}$ (pressure wavefield at receiver positions only) and the wavefield $P^{mod}(x,z,t)$\
+(2) Calculate the data residual of A-scans\seismograms $\delta P = P^{mod} - P^{obs}$\
 (3) Generate the adjoint wavefield $q(x,z,t)$ by backpropagating the residuals from the receiver positions. In other words, inject the time-reversed data residuals at the receivers positions as source.\
-(4) Calculate the gradients $\frac{\partial E(x,z)}{\partial m}$ for each material parameter using gradient equation $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$.\
+(4) Calculate the gradients $\frac{\partial E(x,z)}{\partial m}$ (direction) for each material parameter using gradient equation $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$.\
 (5) Estimate the step length $\mu_n$ by a line search. There are different algorithms to obtain step length, one prominent one is line search algorithm.\
-(6) Update the material parameters using the gradient method $m_{n+1} = m_n - \mu_n(\frac{\partial E(}{\partial m})_n $. Once we have the optimum step length we will update the model/material parameters using the gradient method. We have model at step-length $n$, then we walk in negative gradient direction with step length $\mu_n$ and get new moel $m_{n+1}$ and do it iteratively and reach to the model with minimum value of objective function. \
+(6) Update the material parameters using the gradient method (steepest descent method: move in negative gradient direction) $m_{n+1} = m_n - \mu_n \bigg( \frac{\partial E}{\partial m}\bigg)_n $. Once we have the optimum step length we will update the model/material parameters using the gradient method. We have model at step-length $n$, then we walk in negative gradient direction with step length $\mu_n$ and get new moel $m_{n+1}$ and do it iteratively and reach to the model with minimum value of objective function. 
+
+# Optimisation methods 
+## Steepest Descent method
+The probelem with steepest descent method is that it has slow convergence speed. If the step length is large then it can stuck in a valley. \
+
+**How can we improve the convergence speed?**
+There is a simle method called **Conjugate gradient method** \
+(+) Minimization of the quadratic form by using conjugate search direction instead of the steepest descent direction. It was intially developed for linear probelm (Hestenes and Stifel, 1952). \
+(+) Later Extended to nonlinear objective functions [Fletcher and Reeves, 1964; Polak and Riebiere, 1969] \
+(+) Details mathematical proofs [Nocedal and wright, 1999]. \
+Ref: Shewchuk, Jonathan Richard. "An introduction to the conjugate gradient method without the agonizing pain." (1994). \
+
+## Conjugate gradient algorithm 
+(1) Calculate the steepest descent direction: $\Delta x_n = -\bigg(\frac{\partial E(x,z)}{\partial m} \bigg)$ \
+(2) Compute the correction factor $\beta_n$. It can be obtained from different method:
+  (+) Fletcher-Reeves: $\beta_n^{FR}=\frac{\Delta x_n^T \Delta x_n}{\Delta x_{n-1}^T \Delta x_{n-1}}$. here multplication of $\Delta x_n^T$ and $\Delta x_n$, whcih is a square of steepest descent, gives a scalar and sum for all subsurface points.\
+  (+) Polak-Riebiere: $\beta_n^{PR}\frac{}{}$ \
+  (+) Hestenes-Stiefel: $\beta_n^{HS}\frac{}{}$ \
+  (+) Dai-Yuan: $\beta_n^{DY}\frac{}{}$ \
+ Popular choice $\beta_n = max{0, \beta_n^{PR}}$ which allows an automatic direction reset.  
+(3) Update conjugate direction: $s_n = \Delta x_n + \beta_n s_{n-1}$. So here we are not simply using steepest descent direction $\Delta x_n$ but we are adding the additional term $\beta_n$ multiplied by previous search direction. At first iteration we use steepest descent direction, but all iterations greater than one, we can see that we are correcting the search direction using $\beta_n s_{n-1}$. Now if use the condition $\beta_n = max{0, \beta_n^{PR}}$, we can see that if $\beta$ becomes negative, which means zero we are only using steepest descent direction. It is refered to as automatic direction reset. \
+(4) Estimate step length $\mu_n$ \
+(5) Update material parameters: $m_{n+1} = m_n + \mu_n s_n$ . Updateing the model but not along steepest descent direction but along the modified new search direction.  \
+This improves the convergence speed. \
+
+## Quasi-Newton Limited Memory Broyden Fletcher Goldfarb and Shanno (l-BFGS) Algorithm
+The best optimisation method is the Newton method. The difference between the steepest descent and Newton method was that we multiply the gradient direction with the Hessian or inverse Hessian, i.e. the second derivative of the objective function w.r.t. different material aprameter combination. However the computation of this inverse Hessian is not easy. It requires a lot of memory (RAM) for large optimisation and often it is singular so we have to somehow stabilise it and overall it is computationally expensive to compute inverse Hessian. \
+To overcome this problem there is a quasi-Newtom method, it is called l-BFGS. The idea is to approximate the product of the inverse Hessian with gradient by fintie-differences.
+
+### Quasi-Newton l-BFGS Method (loop-1)
+At iteration step n:
+(1) Compute the gradient $g_n = $
+(2)
+(3)
+(4)
+
+### Quasi-Newton l-BFGS Method (loop-2)
+(1) Compute the Hessian $g_n = $
+(2) Compute $z =$
+(3) for i = n-m to n-1 do
+      $\beta_i = \rho_i y_i^T z$ \
+      $z = z+ s_i(\alpha_i - \beta_i)$
+     end for
+(4) H_n^{-1} g_n = z\
+(5) Update model $m_{n+1} = m_n - \mu_n H_n^-1 g_n$
+
+There are other method like truncated newton method, which is better than quasi newton method.
 
 
-
-
+# multi-modal objective function (multiple minima)
 
 
 
