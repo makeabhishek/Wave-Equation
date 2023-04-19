@@ -168,6 +168,14 @@ FWI is an iterative numerical optimisation method to mimisation of the data resi
 (6) Update the material parameters using the gradient method (steepest descent method: move in negative gradient direction) $m_{n+1} = m_n - \mu_n \bigg( \frac{\partial E}{\partial m}\bigg)_n $. Once we have the optimum step length we will update the model/material parameters using the gradient method. We have model at step-length $n$, then we walk in negative gradient direction with step length $\mu_n$ and get new moel $m_{n+1}$ and do it iteratively and reach to the model with minimum value of objective function. 
 
 # Optimisation methods 
+## Numerical Optimization Algorithms
+Optimization Algorithms are iterative techniques that follow the following fundamental steps: \
+  (+) Initialize with a guess of the decision variables $x$,\
+  (+) Iterate through the process of generating a list of improving estimates, \
+  (+) check whether the terminating conditions are met, and the estimates will be probably stop at the solution point $x^*$
+
+Most of the optimization strategies make use of either the objective function $f(x)$, the constraint functions and $g(x)$ and $h(x)$, the first or second derivatives of these said functions, information collected during previous iterations and/or local information gathered at the present point.
+
 ## Steepest Descent method
 The probelem with steepest descent method is that it has slow convergence speed. If the step length is large then it can stuck in a valley. \
 
