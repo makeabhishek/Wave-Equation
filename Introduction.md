@@ -14,7 +14,7 @@ time traces very well. Can we define some criteria, which can define a model tha
 (3) Is this model unique or are other model existing, which coluld explan the data equallly well?
 
 
-## (1) What is an "optimim" model?
+## (1) What is an "optimum" model?
 Lets we have some observed or experimental data, then we assume a subsurface model and we compute the synthetic/modelled data set using any numerical method, for exmaple Finite difference, finite element oand so on,
 So we have two data \
   (1). Observed or experimental or field data $(u_{obs})$: \
@@ -23,21 +23,17 @@ So we have two data \
   
   <img width="401" alt="Screenshot 2023-04-16 at 12 15 37 AM" src="https://user-images.githubusercontent.com/47937684/232332519-34dd9af5-178d-43c6-ba50-f923d4827e1b.png">
 
-  
-So based on data residue, we can quantify how well our modellled data explain the field data. The problem with this method is that we have to visually inspect the residuals fro every 
-source-receiver pair. Hoever, if can use a measure which can condense this daa residue in some quantitative numbers.
-One way to measure data residues is called $L2-norm$ (Residual Energy) of the data residual.
-So we are taking the square of all the data residue samples in data and sum them. In simple form it can be written as a scalar product. $\delta u$ ia a column vector and taking its transpose means it is a row vector.
-and the product of $\delta u^T \delta u$ is a scalar. $E = \frac{1}{2}\delta u^T \delta u$
-This is the way to condence down all the data residue into single number $E$.
-If the data residue high that means the misfit between the data is also high and vice versa.
+So based on data residue, we can quantify how well our modelled data explain the field data. The problem with this method is that we have to visually inspect the residuals for each source-receiver pair. However, if a measure can be used to condense this data residue in some quantitative numbers.
+One way to measure data residues is called $L2-norm$ (Residual Energy) of the data residual. \
+So we are taking the square of all the data residue samples in data and sum them. In simple form it can be written as a scalar product. $\delta u$ is a column vector and taking its transpose means it is a row vector, and the product of $\delta u^T \delta u$ is a scalar. \
+**Objective Function** $E = \frac{1}{2}\delta u^T \delta u$: \
+This is the way to **condence down all the data residue into single number $E$**. If the data residue high that means the misfit between the data is also high and vice versa. \
 
-So the next step is to reduce the data misfit. Therefore to find the optimum model, we have to minimise the objective function (E), because once the objective function is minimised, the data residue will be minimised.
-This means that we have find a model which explains the experimetnal data very well (once the misfit is reduced). \
+Now, the next step is to reduce/minimise the data misfit ($\delta u$). Therefore, to find the optimum model, we have to minimise the objective function $(E)$, because once the objective function is minimised, the data residue will be minimised. This means that we have to find a model which explains the experimetnal data very well (once the misfit is reduced). \
 
-So the final aim is to minimise the objective function so that the systhetic data resembels the experimental data. Now the question is how to minimize the objective function (E) and therefore find a subsurface model that can explain the field data? \
+Hence, the final aim is to minimise the objective function so that the synthetic data resembels with the experimental data. Now the question is how to minimize the objective function $(E)$ and therefore find a subsurface model that can explain the field data? \
 
-### How to find an optimum model. or minimize the objective function (E)? 
+## How to find an optimum model or minimize the objective function (E)? 
 The above problme looks like an optimisation problem, It is a non-linear optimisation problem. How to approach and solve this problem. These problems are usually have very large parameter space so typically it has a dimesnion of thousands to millions. Analysisng the objective funtion in space of this huge dimention is bit complicated in this world of 3D. To understand the probelm lets restrict us to 2D in to parameter space and then evaluate the misfit fucntion in this 2D parameter sapce.
 
 A lot of mathemticians have created a lot of test functions for numerical optimisation. The plots of associated fucntion and their minima is described in wikipidea https://en.wikipedia.org/wiki/Test_functions_for_optimization#:~:text=In%20applied%20mathematics%2C%20test%20functions,Robustness.
@@ -52,11 +48,12 @@ $x_2 \rightarrow density \V_p$, so the resulting Rosenbrock function will be \
 $E = (1-V_p)^2 + 100(\V_p - V_p^2)^2$ \
 Keep in mind though that this is seophysical non-sense. With this objective function we just want to learn that how to estimate a subsurface model by minimising the objecive function. Because the form of the objective function is known, we know where the minimum of this objective function would be. By this we can also test out numerical optimisation problem.\
 <img width="479" alt="Screenshot 2023-04-17 at 10 52 12 PM" src="https://user-images.githubusercontent.com/47937684/232674541-be371b1e-b757-4a6a-b93a-b3b23f5804d6.png">
-In above image, we can see the part of the parameter space. (Again this is a geophysical non-sense). Lets assume we have one point in the subsurface, and here we have plotted the density vs P-wave velocity. So all the points in the image resembles different models of p-wave velocity and density. Now for all these models, we can calculate the synthetic data (by solving wave equation for each V_P and density) and estimate the objective function. This simly means that take the data residue between synthetic and observed data, square them and calculate the sum over all our squared data-residues, and than we can associate for each model in the misfit function as shwon in the image, i.e. Residual energy. The color in this plot resembles differents models with different objecive funtion values. So we can see that red colours are where data residues are very high and we dont want to use, because these do not represent our field data very well. However, yellow models have a very low data resideu and thereofere can explain our data very well.  So we are interested at the minimum residue. \
+In the above image, we can see the part of the parameter space. (Again this is a geophysical non-sense). Lets assume we have one point in the subsurface, and here we have plotted the density vs P-wave velocity. So all the points in the image resembles different models of p-wave velocity and density. Now for all these models, we can calculate the synthetic data (by solving wave equation for each V_P and density) and estimate the objective function. This simly means that take the data residue between synthetic and observed data, square them and calculate the sum over all our squared data-residues, and than we can associate for each model in the misfit function as shwon in the image, i.e. Residual energy. The color in this plot resembles differents models with different objecive funtion values. So we can see that red colours are where data residues are very high and we dont want to use, because these do not represent our field data very well. However, yellow models have a very low data resideu and thereofere can explain our data very well.  So we are interested at the minimum residue. \
 So in order to find this optimum model we have to miminise the objective function $E$. We can do it by simple start in the parameter space ($m_1$) which has some p-wave velocity and density as initial guess. The aim is to start from this model and reac to the subsurface model. \
 (1) Start search with initial guess $m_1$ \
-(2) Define a direction in which we want to walk inside the parameter space, whcih is defined by a vector $\delta m_1$, define the step length and then simply walk straight in the parameter space  until we reach model $m_2$.  So, mathematically update the model iteratively : $m_2 = m_1 + \mu_1 \delta m_1$, model is a vector becaue we have two parametes p-wave velocity and density. $\delta m_1$ denotes the direction and $\mu_1$ is the step length.  \
+(2) Define a direction in which we want to walk inside the parameter space, which is defined by a vector $\delta m_1$; define the step length and then simply walk straight in the parameter space  until we reach model $m_2$.  So, mathematically update the model iteratively : $m_2 = m_1 + \mu_1 \delta m_1$, model is a vector becaue we have two parametes p-wave velocity and density. $\delta m_1$ denotes the direction and $\mu_1$ is the step length.  \
 <img width="478" alt="Screenshot 2023-04-17 at 11 10 06 PM" src="https://user-images.githubusercontent.com/47937684/232676966-61c2a441-e1c2-4df9-948d-bfcb3edf4a83.png"> \
+
 ## Big question: Which Direction $\delta m_1$ should we walk/choose?
 <img width="459" alt="Screenshot 2023-04-17 at 11 11 02 PM" src="https://user-images.githubusercontent.com/47937684/232677133-fb3208c0-d6d5-49e1-8c58-d87595cae49c.png">
 
@@ -93,5 +90,71 @@ Adjoint state method is a computationally chep method to calculate the gradient 
 Unfortunatelly this Adjoint state method works for linear problem, however the real senarios are non-linear, so the adjoint state approach may not really work.\ 
   (+) Global optimisation method can be used in non-linear case to implement FWI.
  
- ## Lets consider 2D acosutic wave equation
+ # Lets consider 2D Acoustic wave equation
+ We assume that we can approximate ultrasonic or acoustic wave propagation and the subsurface by the 2D acoustic wave equation. It has second derivative of pressure (P) at each subsurface points (x,z) and at each time (t) w.r.t. time. Then it has laplace operator whcih is second order spatial derivative of pressure (P) field. To describe the sub-surface medium we have material parameter (vp), whcih only depends on P-wave velocity at diffeent sub-surface points (x,z). To excite the wave, we need source term, whcih is denoted by (f) at (x,z,t). This defines how source at given space points behave over time. Therefore, with source term and velocity distribution of the subsurface we can solve the wave equation using fintie difference or fintie element method, or some other method. Furthermore, for each PDE, it need to satisfy certain initial an boundary condition.\
+ $\frac{1}{vp^2(x,z)}\frac{\partial^2 P(x,z,t)}{\partial t^2} - \Delta P(x,z,t) = f(x,z,t)$ \ 
+ with \
+  (+) vp(x,z) = P-wave velocity model \
+  (+) P(x,z,t) = Pressure wavefield\
+  (+) f(x,z,t) = source term \
+  (+) $\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial z^2}$ = Laplace operator\
+Additionally, we have to satisfy initial and boundary conditions. The initial conditions, how the pressure field behave at intial time:  \
+  (+) P(x,z,0) =0 i.e., pressure field at time zero at all spatial points is zero.\
+  (+) $\frac{\partial P(x,z,0)}{\partial t} =0$ derivative of pressure field at time zero at all spatial points is zero.\
+  
+ Now we need the boundary condition also, how the pressure field behaves at the boundary. These can be \
+ (+) Neuman B.C. \
+ (+) Drichlet B.C. \
+ (+) Free surface B.C. \
+ (+) Absorbing B.C. \
+ 
+## Calculate gradient 
+So now we want to calculate the gradient of the objective function w.r.t. material parameters. In this case it is w.r.t. P-wave velociy model at each of the sub-surface points. \
+**Adjoint state gradient $\frac{\partial E}{\partial m}$** \
+For a detailed derivaion, refer to [Plessix, 2006] \
+**$\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$**\
+with \
+  (+) m = 1/vp^2(x,z) = P-wave slowness \
+  (+) P_s(x,z,t) = forward pressure wavefield \
+  (+) $\frac{\partial^2 P_s(x,z,t)}{\partial t^2}$ = second time derivative of forward pressure wavefield at each subsurface point and at each time. \
+  (+) q_s(x,z,T-t) = adjoint pressure wavefield also at each subsurface point but the time is reversed. \
+  (+) $\sum_s$ = sum over all sources \
+  (+) T = maximum time-trace recording time \
+We can see the gradient of the objective function at each subsurface points $\frac{\partial E(x,z)}{\partial m}$ w.r.t. model/material parameter $m$ at the subsurface point. We have second time derivative of forward pressure wavefield and we are multiplying it by adjoint wavefield at aeach subsurface points and at each time step. Then we sum over each time and sum for all sources. \ 
+
+## What are forward and adjoint wavefields? 
+### Forward Wavefield [P_s(x,z,t)]: This can be easily computed by solving the acoustic wave equation \
+$\frac{1}{vp^2(x,z)}\frac{\partial^2 P_s(x,z,t)}{\partial t^2} - \Delta P_s(x,z,t) = f(x,z,t)$ \
+$P_s(x,z,t) = 0$ and  \
+$\frac{\partial P_s(x,z,0)}{\partial t} =0$ \
+So this is the wavefield that we get when we excite a source at a given source position. the acoustic wave is traveling from the source to the sub-surface and we can record the wavefield at each subsurface point. \
+
+### Adjoint Wavefield [q_s(x,z,T-t)]: Adjoint wavefield is basically the equation remoins the same, we still have to solve the acoustic wave equation. \
+$\frac{1}{vp^2(x,z)}\frac{\partial^2 q_s(x,z,t)}{\partial t^2} - \Delta q_s(x,z,t) = f_q$ \
+However the source is changed. Here we take a so called **Adjoint source** term and inject these adjoint source terms as new sources at the receiver positions. \
+
+### What are adjoint source [$f_q$]?
+They consist of time-reversed data residues at the receiver positions ($r$). 
+$f_q = \sum_r (P_{s,r}^{(mod)}(T-t) - P_{s,r}^{(obs)} (T-t))$ \
+$q_s(x,z,T) = 0$ \
+$\frac{\partial q_s(x,z,T)}{\partial t} =0$ \
+
+So first, we are calculating forward wavefield $P_s(x,z,t)$ at each subsurface points but also at each receiver position, so we are calculating sunthetic seismogram or time traces. This synethetic data are denoted by $P_{s,r}^{(mod)}(T-t)$. For each source and receiver we have synthetic A-scan that depends on time. Now we are time reversing the A-scans means flipping the A-scans along the time axis and then we are also taking observed A-scans and flipping them in time $P_{s,r}^{(obs)} (T-t)$. Then, we subtract them, whcih results in the data residues. Finally, we inject them at receiver positions. So, the source wavelet at each receiver position, whcih is now acting as source is defined by the A-scans of the data residues. Than we have intial conditions. \
+### Summary
+So the differnece between the Forward and adjoint wavefield is only the source term in acoustic case. So $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$ equation is the fundamental part of the waveform inverison algorithm. We need to estimate the gradient of the objective function w.r.t. model parameters at each sub-surface points. \
+
+# Full-waveform Inversion\tomography algorithm
+(0) We have the observed data $P^{obs}$
+(1) For each source $f(x,z,t)$ solve the forward probelm for the current model $m_n$ to generate a synthetic dataset $P^{mod}$ (pressure wavefield at receiver positions only) and the wavefield $P^{mode}(x,z,t)$\
+(2) Calculate the data residual of A-scans\seismograms $\deltaP = P^{mod} - P^{obs}$\
+(3) Generate the adjoint wavefield $q(x,z,t)$ by backpropagating the residuals from the receiver positions. In other words, inject the time-reversed data residuals at the receivers positions as source.\
+(4) Calculate the gradients $\frac{\partial E(x,z)}{\partial m}$ for each material parameter using gradient equation $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$.\
+(5) Estimate the step length $\mu_n$ by a line search. There are different algorithms to obtain step length, one prominent one is line search algorithm.\
+(6) Update the material parameters using the gradient method $m_{n+1} = m_n - \mu_n(\frac{\partial E(}{\partial m})_n $. Once we have the optimum step length we will update the model/material parameters using the gradient method. We have model at step-length $n$, then we walk in negative gradient direction with step length $\mu_n$ and get new moel $m_{n+1}$ and do it iteratively and reach to the model with minimum value of objective function. \
+
+
+
+
+
+
 
