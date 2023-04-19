@@ -1,3 +1,10 @@
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 # Inversion 
 There are a lot of methods to obtain the velocity or from . A fundamantal method to obtain velocity of the medium is first arrival travel time tomography.
 However, the resolution of first arrival traveltime tomography is restricted by the size of the first Frenel zone. The first arraival traveltime 
@@ -12,7 +19,6 @@ So the aim is to obtain high resolution velocity model from the recorded time-tr
 time traces very well. Can we define some criteria, which can define a model that can fits the data very well. Once we have the criteria, next question is
 (2) How can we find the model? What kind of optimisation that we use inorder t find this model.
 (3) Is this model unique or are other model existing, which coluld explan the data equallly well?
-
 
 ## (1) What is an "optimum" model?
 Lets we have some observed or experimental data, then we assume a subsurface model and we compute the synthetic/modelled data set using any numerical method, for exmaple Finite difference, finite element oand so on,
