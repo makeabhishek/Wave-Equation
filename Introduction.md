@@ -142,8 +142,8 @@ Additionally, we have to satisfy initial and boundary conditions. The initial co
   
  Now we need the boundary condition also, how the pressure field behaves at the boundary. These can be
  
- (+) Neuman B.C. \
- (+) Drichlet B.C. \
+ (+) Neuman B.C.: The Neumann (or second-type) boundary condition is a type of boundary condition, named after Carl Neumann. When imposed on an ordinary or a partial differential equation, the condition specifies the values of the derivative applied at the boundary of the domain.\
+ (+) Drichlet B.C.:If you take consider the wave equation on a disk D, then if we use Dirichlet boundary conditions, it means the wave function is fixed at 0 on the boundary of the disk, and if we consider the eigenvalues of the system, this can be visualized physically as a vibrating drumhead. \
  (+) Free surface B.C. \
  (+) Absorbing B.C. 
  
