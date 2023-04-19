@@ -19,7 +19,7 @@ Lets we have some observed or experimental data, then we assume a subsurface mod
 So we have two data \
   (1). Observed or experimental or field data $(u_{obs})$: \
   (2). Synthetic or modelled data $(u_{mod})$: \
-  (3). Data residue $(\delta u = u_{mod} - u_{obs})$: \
+  (3). Data residue $(\delta u = u_{mod} - u_{obs})$: 
   
   <img width="401" alt="Screenshot 2023-04-16 at 12 15 37 AM" src="https://user-images.githubusercontent.com/47937684/232332519-34dd9af5-178d-43c6-ba50-f923d4827e1b.png">
 
