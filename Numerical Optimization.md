@@ -22,3 +22,10 @@ Lets define optimisation probelm mathematically, \
 ## A Solution
   
 A *solution* of $f(\mathbf{x})$ is a point $\mathbf{x^*}$ which denotes the optimum vector that solves Eq.\eqref{eq:1}, corresponding to the optimum value $f(\mathbf{x^*})$.
+
+In case of a *minimization* problem, the optimum vector $\mathbf{x^*}$ is referred to as the *global minimizer* of $f$, and $f$ attains the least possible value at $\mathbf{x^*}$. To design an algorithm that finds out the global minimizer for a function is quite difficult, as in most cases we do not have the idea of the overall shape of $f$. Mostly our knowledge is restricted to a local portion of $f$.
+
++ A point $\mathbf{x^*}$ is called a *global minimizer* of $f$ if $f(\mathbf{x^*}) \leq f(\mathbf{x}) \forall\ x$.
+
+ 
++ A point $\mathbf{x^*}$ is called a *local minimizer* of $f$ if there is a neighborhood $\mathcal{N}$ of $\mathbf{x^*}$ such that $f(\mathbf{x^*}) \leq f(\mathbf{x}) \forall\ x \in \mathcal{N}$.
