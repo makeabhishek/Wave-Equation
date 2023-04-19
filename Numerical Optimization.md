@@ -3,7 +3,7 @@ Mathematical optimization is the process of obtaining the best solution to a giv
 The best solution could be to minimise the problem or maximise the problem. For example, the lowest cost, the quickest runtime, the lowest environmental impact, maximum profit.
 
 Lets define optimisation probelm mathematically, \
-+ Let $f(\mathbf{x})$ be a scalar function of a vector of variables $\mathbf{x} = \begin{pmatrix}x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \in \mathbb{R}^n$. 
++ Let $f(\mathbf{x})$ be a scalar function of a vector of variables $$\mathbf{x} = \begin{pmatrix}x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \in \mathbb{R}^n$. 
 *Numerical Optimization* is the minimization or maximization of this function $f$ subject to constraints on $\mathbf{x}$. This $f$ is a scalar function of $\mathbf{x}$, also known as the *objective function* and the continuous components $x_i \in \mathbf{x}$ are called the *decision variables*.
 
 + The optimization problem is formulated in the following way:
