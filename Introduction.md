@@ -74,9 +74,9 @@ $\delta m_1 = - H_1^{-1} (\frac{\partial E}{\partial m})_1$, where $(\frac{\part
 
 So this is a resonalble aporach to mimimise the objective function from a given point in the parameter space. Now the problem with this approach is that we can calculate the graidnt of obejctive function easitly with mathematial tricks but the computation of inverse Hessian is very expensive and often the inverse Hessian is singular and we 
 have to stabilise it some how. Also the Hessian is very large. So what we do is to approximate inverse Hessian by a parameter called **Preconditioning operator**. \
- **Gradient method** $m_{n+1} = m_n - \mu_n P_n^{-1} \bigg( \frac{partial E}{\partial m}_n$ \. 
+ **Gradient method** $m_{n+1} = m_n - \mu_n P_n^{-1} \bigg( \frac{\partial E}{\partial m} \bigg)_n$ \. 
  So preconditioniing should emitate the action of the Hessian. If we set Preconditioning to one, this is called **steepest descent method**. One of the issues with the steepest descent method that it has slow convergence, because it slowly propagate in  the valley, as shown below. But we can spped up this process by appropriate preconditioning operator. 
- <img width="447" alt="Screenshot 2023-04-17 at 11 48 57 PM" src="https://user-images.githubusercontent.com/47937684/232683170-57209747-f9e8-470d-a721-9f0ab27e860a.png"> \
+ <img width="447" alt="Screenshot 2023-04-17 at 11 48 57 PM" src="https://user-images.githubusercontent.com/47937684/232683170-57209747-f9e8-470d-a721-9f0ab27e860a.png"> 
  So now we have found the numerical method from which, we can find the objective function and thereofore minimise our data residue and therefore obtain the susbsurface model. 
  
  ## Final quesiton: How to calculate the gradient ($\frac{\partial E}{\partial m}$) of Objective function w.r.t. material aprameter?
@@ -100,13 +100,13 @@ Unfortunatelly this Adjoint state method works for linear problem, however the r
   (+) $\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial z^2}$ = Laplace operator\
 Additionally, we have to satisfy initial and boundary conditions. The initial conditions, how the pressure field behave at intial time:  \
   (+) P(x,z,0) =0 i.e., pressure field at time zero at all spatial points is zero.\
-  (+) $\frac{\partial P(x,z,0)}{\partial t} =0$ derivative of pressure field at time zero at all spatial points is zero.\
+  (+) $\frac{\partial P(x,z,0)}{\partial t} =0$ derivative of pressure field at time zero at all spatial points is zero.
   
  Now we need the boundary condition also, how the pressure field behaves at the boundary. These can be \
  (+) Neuman B.C. \
  (+) Drichlet B.C. \
  (+) Free surface B.C. \
- (+) Absorbing B.C. \
+ (+) Absorbing B.C. 
  
 ## Calculate gradient 
 So now we want to calculate the gradient of the objective function w.r.t. material parameters. In this case it is w.r.t. P-wave velociy model at each of the sub-surface points. \
@@ -123,15 +123,15 @@ with \
 We can see the gradient of the objective function at each subsurface points $\frac{\partial E(x,z)}{\partial m}$ w.r.t. model/material parameter $m$ at the subsurface point. We have second time derivative of forward pressure wavefield and we are multiplying it by adjoint wavefield at aeach subsurface points and at each time step. Then we sum over each time and sum for all sources. \ 
 
 ## What are forward and adjoint wavefields? 
-### Forward Wavefield [P_s(x,z,t)]: This can be easily computed by solving the acoustic wave equation \
+### Forward Wavefield [P_s(x,z,t)]: This can be easily computed by solving the acoustic wave equation 
 $\frac{1}{vp^2(x,z)}\frac{\partial^2 P_s(x,z,t)}{\partial t^2} - \Delta P_s(x,z,t) = f(x,z,t)$ \
 $P_s(x,z,t) = 0$ and  \
 $\frac{\partial P_s(x,z,0)}{\partial t} =0$ \
-So this is the wavefield that we get when we excite a source at a given source position. the acoustic wave is traveling from the source to the sub-surface and we can record the wavefield at each subsurface point. \
+So this is the wavefield that we get when we excite a source at a given source position. the acoustic wave is traveling from the source to the sub-surface and we can record the wavefield at each subsurface point. 
 
 ### Adjoint Wavefield [q_s(x,z,T-t)]: Adjoint wavefield is basically the equation remoins the same, we still have to solve the acoustic wave equation. \
 $\frac{1}{vp^2(x,z)}\frac{\partial^2 q_s(x,z,t)}{\partial t^2} - \Delta q_s(x,z,t) = f_q$ \
-However the source is changed. Here we take a so called **Adjoint source** term and inject these adjoint source terms as new sources at the receiver positions. \
+However the source is changed. Here we take a so called **Adjoint source** term and inject these adjoint source terms as new sources at the receiver positions. 
 
 ### What are adjoint source [$f_q$]?
 They consist of time-reversed data residues at the receiver positions ($r$). 
@@ -139,9 +139,10 @@ $f_q = \sum_r (P_{s,r}^{(mod)}(T-t) - P_{s,r}^{(obs)} (T-t))$ \
 $q_s(x,z,T) = 0$ \
 $\frac{\partial q_s(x,z,T)}{\partial t} =0$ \
 
-So first, we are calculating forward wavefield $P_s(x,z,t)$ at each subsurface points but also at each receiver position, so we are calculating sunthetic seismogram or time traces. This synethetic data are denoted by $P_{s,r}^{(mod)}(T-t)$. For each source and receiver we have synthetic A-scan that depends on time. Now we are time reversing the A-scans means flipping the A-scans along the time axis and then we are also taking observed A-scans and flipping them in time $P_{s,r}^{(obs)} (T-t)$. Then, we subtract them, whcih results in the data residues. Finally, we inject them at receiver positions. So, the source wavelet at each receiver position, whcih is now acting as source is defined by the A-scans of the data residues. Than we have intial conditions. \
+So first, we are calculating forward wavefield $P_s(x,z,t)$ at each subsurface points but also at each receiver position, so we are calculating sunthetic seismogram or time traces. This synethetic data are denoted by $P_{s,r}^{(mod)}(T-t)$. For each source and receiver we have synthetic A-scan that depends on time. Now we are time reversing the A-scans means flipping the A-scans along the time axis and then we are also taking observed A-scans and flipping them in time $P_{s,r}^{(obs)} (T-t)$. Then, we subtract them, whcih results in the data residues. Finally, we inject them at receiver positions. So, the source wavelet at each receiver position, whcih is now acting as source is defined by the A-scans of the data residues. Than we have intial conditions. 
+
 ### Summary
-So the differnece between the Forward and adjoint wavefield is only the source term in acoustic case. So $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$ equation is the fundamental part of the waveform inverison algorithm. We need to estimate the gradient of the objective function w.r.t. model parameters at each sub-surface points. \
+So the differnece between the Forward and adjoint wavefield is only the source term in acoustic case. So $\frac{\partial E(x,z)}{\partial m} = - \sum_s \int_{0}^{T} q_s(x,z,T-t) \frac{\partial^2 P_s(x,z,t)}{\partial t^2}$ equation is the fundamental part of the waveform inverison algorithm. We need to estimate the gradient of the objective function w.r.t. model parameters at each sub-surface points. 
 
 # Full-waveform Inversion\tomography algorithm
 (0) We have the observed data $P^{obs}$
