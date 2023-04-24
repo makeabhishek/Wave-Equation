@@ -239,20 +239,27 @@ There is a simle method called **Conjugate gradient method**
 
 Ref: Shewchuk, Jonathan Richard. "An introduction to the conjugate gradient method without the agonizing pain." (1994).
 
-## Conjugate gradient algorithm 
+## Linear Conjugate Gradient Method
+This is an iterative method to solve large linear systems where the coefficient matrices are positive definite. This can be treated as a replacement of the Gaussian elimination method in numerical analysis. \
+In the linear conjugate gradient method, the direction $\delta_j$ is a linear combination of the preceding direction $\delta\_{j-1}$ and the negative of the residual $-r\_j$. So we can write  \
+$\delta\_j = \chi\_j \delta\_{j-1} - r\_j$
+
+## Nonlinear Conjugate Gradient method 
 (1) Calculate the steepest descent direction: $\Delta x_n = -\bigg(\frac{\partial E(x,z)}{\partial m} \bigg)$
 
 (2) Compute the correction factor $\beta_n$. It can be obtained from different method:
 
-  (+) Fletcher-Reeves: $\beta_n^{FR}=\frac{\Delta x_n^T \Delta x_n}{\Delta x_{n-1}^T \Delta x_{n-1}}$. here multplication of $\Delta x_n^T$ and $\Delta x_n$, whcih is a square of steepest descent, gives a scalar and sum for all subsurface points.
+  (+) Fletcher-Reeves algorithm: $\beta_n^{FR}=\frac{\Delta x_n^T \Delta x_n}{\Delta x_{n-1}^T \Delta x_{n-1}}$. here multplication of $\Delta x_n^T$ and $\Delta x_n$, whcih is a square of steepest descent, gives a scalar and sum for all subsurface points.
   
-  (+) Polak-Riebiere: $\beta_n^{PR}\frac{}{}$
+  (+) Polak-Riebiere algorithm: $\beta_n^{PR}\frac{}{}$
   
-  (+) Hestenes-Stiefel: $\beta_n^{HS}\frac{}{}$
+  (+) Hestenes-Stiefel algorithm: $\beta_n^{HS}\frac{}{}$
   
-  (+) Dai-Yuan: $\beta_n^{DY}\frac{}{}$  
+  (+) Dai-Yuan algorithm: $\beta_n^{DY}\frac{}{}$  
  Popular choice $\beta_n = max{0, \beta_n^{PR}}$ which allows an automatic direction reset.  
- 
+  
+  (+) Hager-Zhang algorithm:
+  
 (3) Update conjugate direction: $s_n = \Delta x_n + \beta_n s_{n-1}$. So here we are not simply using steepest descent direction $\Delta x_n$ but we are adding the additional term $\beta_n$ multiplied by previous search direction. At first iteration we use steepest descent direction, but all iterations greater than one, we can see that we are correcting the search direction using $\beta_n s_{n-1}$. Now if use the condition $\beta_n = max{0, \beta_n^{PR}}$, we can see that if $\beta$ becomes negative, which means zero we are only using steepest descent direction. It is refered to as automatic direction reset.
 
 (4) Estimate step length $\mu_n$
