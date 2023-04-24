@@ -39,7 +39,7 @@ Now, the next step is to reduce/minimise the data misfit ($\delta u$). Therefore
 
 Hence, the final aim is to minimise the objective function so that the synthetic data resembels with the experimental data. Now the question is how to minimize the objective function $(E)$ and therefore find a subsurface model that can explain the field data? 
 
-## How to find an optimum model or minimize the objective function (E)? 
+## (2) How to find an optimum model or minimize the objective function (E)? 
 The above problme looks like an optimisation problem, It is a non-linear optimisation problem. How to approach and solve this problem. These problems are usually have very large parameter space so typically it has a dimesnion of thousands to millions. Analysisng the objective funtion in space of this huge dimention is bit complicated in this world of 3D. To understand the probelm lets restrict us to 2D in to parameter space and then evaluate the misfit fucntion in this 2D parameter sapce.
 
 A lot of mathemticians have created a lot of test functions for numerical optimisation. The plots of associated fucntion and their minima is described in wikipidea https://en.wikipedia.org/wiki/Test_functions_for_optimization#:~:text=In%20applied%20mathematics%2C%20test%20functions,Robustness.
@@ -77,7 +77,7 @@ there would be some directin which are favourable and some should be avaoided be
 **We can move in the gradient direction to reach to the minimum.**
 The image shows the countour lines of the objective function. One idea would be to move in the sttepest descent direction of the objective funstion. So it is the negative gradient of the objective funtion w.r.t. two material parameters. So the intutive answer would be to walk along gradinet of the objective funetion. 
 
-## How to find optimum search direction
+## How to find optimum search direction?
 We simply take a look, how the objective function in the visicinity of our intial model changes when we add a small perturbation $\delta m_1$ in any direction. Now we are assuming that these perturbations are very small, we can expand this expression in to a Taylor series. So we can approximate this by the value of the objective function at our starting point $E m_1$ plus the linear term (\delta m_1) of the Taylor series expansion, i.e. $\delta m_1 \frac{\partial E}{\partial m}_1$ and the gradient of objecive function w.r.t. material parametes plus quadratic term. In the expression $\delta m_1$ is a vector so quadratic term is written in term of transpose multiplied by second derivative of objective function w.r.t. material parameters.
 
 $E(m_1 + \delta m_1) \approx E(m_1) + \delta m_1 \delta m_1 \frac{\partial E}{\partial m}_1 + \frac{1}{2}\delta m_1^T H_1 \delta m_{1}$ So this is a Taylor expension in multiple dimensions.
