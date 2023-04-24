@@ -9,11 +9,11 @@ the whole recorded waveform. So if we are considering all the information in the
 
 So the aim is to obtain high resolution velocity model from the recorded time-traces. To obtain the high resoltion image, we have to solve mainly three problems:
 
-(1) What is an "optimal" model? In other words, what is the model that can explain the time traces very well. Can we define some criteria, which can define a model that can fits the data very well. Once we have the criteria, next question is
+(1) **What is an "optimal" model?** In other words, what is the model that can explain the time traces very well. Can we define some criteria, which can define a model that can fits the data very well. Once we have the criteria, next question is
 
-(2) How can we find the model? What kind of optimisation that we use inorder t find this model.
+(2) **How can we find the model?** What kind of optimisation that we use inorder t find this model.
 
-(3) Is this model unique or are other model existing, which coluld explan the data equallly well?
+(3) **Is this model unique** or are other model existing, which coluld explan the data equallly well?
 
 ## (1) What is an "optimum" model?
 Lets we have some observed or experimental data, then we assume a subsurface model and we compute the synthetic/modelled data set using any numerical method, for exmaple Finite difference, finite element oand so on,
