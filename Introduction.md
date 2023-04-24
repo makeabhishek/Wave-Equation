@@ -43,7 +43,8 @@ Hence, the final aim is to minimise the objective function so that the synthetic
 The above problme looks like an optimisation problem, It is a non-linear optimisation problem. How to approach and solve this problem. These problems are usually have very large parameter space so typically it has a dimesnion of thousands to millions. Analysisng the objective funtion in space of this huge dimention is bit complicated in this world of 3D. To understand the probelm lets restrict us to 2D in to parameter space and then evaluate the misfit fucntion in this 2D parameter sapce.
 
 A lot of mathemticians have created a lot of test functions for numerical optimisation. The plots of associated fucntion and their minima is described in wikipidea https://en.wikipedia.org/wiki/Test_functions_for_optimization#:~:text=In%20applied%20mathematics%2C%20test%20functions,Robustness.
-![functions](https://user-images.githubusercontent.com/47937684/234052374-588c6cd0-d3bb-4383-922f-3fbd0512ad32.JPG)
+
+<![functions](https://user-images.githubusercontent.com/47937684/234052374-588c6cd0-d3bb-4383-922f-3fbd0512ad32.JPG)>
 
 Lets take a commonly used objecive function, known as **Rosenbrock fucntion** also called 'banana function'. We take the 2D Rosenbrock function, \
 $E = (1-x_1)^2 + 100(x_2 - x_1^2)^2$ 
