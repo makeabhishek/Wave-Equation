@@ -56,7 +56,7 @@ $x_2 \rightarrow \rho (i.e. density)$, so the resulting Rosenbrock function will
 
 $E = (1-V_p)^2 + 100(\rho - V_p^2)^2$
 
-Keep in mind though that this is seophysical non-sense. With this objective function we just want to learn that how to estimate a subsurface model by minimising the objecive function. Because the form of the objective function is known, we know where the minimum of this objective function would be. By this we can also test out numerical optimisation problem.
+Keep in mind though that this is acoustic\ultrasonic\geophysical non-sense. With this objective function we just want to learn that how to estimate a subsurface model by minimising the objecive function. Because the form of the objective function is known, we know where the minimum of this objective function would be. By this we can also test out numerical optimisation problem.
 
 <img width="479" alt="Screenshot 2023-04-17 at 10 52 12 PM" src="https://user-images.githubusercontent.com/47937684/232674541-be371b1e-b757-4a6a-b93a-b3b23f5804d6.png"> 
 
