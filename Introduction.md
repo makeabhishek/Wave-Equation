@@ -1,3 +1,23 @@
+# Data processing tasks 
+Commonly used in sesimic research but can be followed in other field:
+
+## Processing
+  (+) Denoisiing/ filtering - Deconvolution - Sorting - interpolation
+  (+) Demultiple - inverse quality (Q) filtering
+  (+) Velocity analysis - traveltime corrections - stacking
+## Modelling
+  (+) Ray-tracing - Eikonal solvers - Reflectivity- AVO modeling
+  (+) Finite difference - Q Reflectivity
+## Imaging / migration
+  (+) Time migration - depth migration - converted wave migration
+  (+) Least-squares migration - Reverse time migration
+## Inversion
+  (+) AVO inversion
+  (+) Q estimation
+  (+) Tomography
+
+# Data
+
 # Inversion 
 There are a lot of methods to obtain the velocity or from . A fundamantal method to obtain velocity of the medium is first arrival travel time tomography.
 However, the resolution of first arrival traveltime tomography is restricted by the size of the first Frenel zone. The first arraival traveltime 
