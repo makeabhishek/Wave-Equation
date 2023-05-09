@@ -33,4 +33,21 @@ In a rectangular reference frame, gradient is a vector field, whose three Cartes
 # Gradient, directional derivative, the derivative, the Jacobian, the total differential, the directional derivative, the partial derivative, and Frechet derivative, and the Hessian.
 https://math.stackexchange.com/questions/1067149/what-is-difference-between-all-of-these-derivatives 
 
-# The perturbation theory
+# Adjoint-state method from the perturbation theory
+The modeling schem 
+$u=Am$ \
+$\rightarrow 0 = F(m) = u-Am$ \
+The objective function $J(m) = h(u) = \frac{1}{2} ||u-d||_c^2$ \
+Initial: model paramter 'm', state variable 'u', objective funtion 'J' \
+Perturbed: $m +\delta m$, $u +\delta u$, $J +\delta J$ \
+$0 = F(u +\delta u, m +\delta m)$ \
+Expanding, \
+$\= F(u, m) + \frac{\partial F}{\partial u}\delta u + \frac{\partial F}{\partial m}\delta m $ \
+Note that \
+$F(u, m)=0 \rightarrow \frac{\partial F}{\partial u}\delta u =- \frac{\partial F}{\partial m}\delta m $ \
+In the linear case: $F(u, m)=u-Am$ \
+$\delta u = A\delta m$ \
+
+
+
+
