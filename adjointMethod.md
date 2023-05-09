@@ -23,4 +23,13 @@ A Taylor series of a real function in two variables $f(x,y)$ is given by \
 $f(x + \Delta x, y + \Delta y) = f(x,y) + [f\_x (x,y)\Delta x + f_y\ (x,y) \Delta y] + \frac{1}{2\!} [(\Delta x)^2 f\_{xx} (x,y) + 2 \Delta x \Delta y f\_{xy} (x,y) + (\Delta y)^2 f_{yy} (x,y)] +$ \
 $\frac{1}{3\!}[(\Delta x)^3 f\_{xxx} (x,y) + 3 (\Delta x)^2 \Delta y f\_{xxy}(x,y) + 3 \Delta x (\Delta y)^2 f\_{xyy}(x,y) + (\Delta y)^3 f\_{yyy}(x,y)] + \cdot \cdot \cdot$ \
 
+# What is the difference between a gradient and a derivative?
+They are pretty much the same thing. The difference comes from the number of dimensions of your function.
+
+In one variable functions you only need the derivative to know how a function is changing. In multivariable functions there are multiple directions that a function can change in and therefore it is no longer sufficient to have only 1 derivative. But you can define a new idea, the gradient to describe how the function changes in multiple dimensions. The gradient is just a vector with the function’s partial derivatives for components. For instance $grad(f(x,y))=$ $\nabla (f(x,y)) = \frac{df(x,y)}{dx}, \frac{df(x,y)}{dy}$. 
+
+In a rectangular reference frame, gradient is a vector field, whose three Cartesian components are partial derivatives of a scalar field with respect to cartesian components of location. Gradient of the vector field is the second-order tensor, for example, gradient of velocity in fluid mechanics. Gradients of strain tensor and stress tensor are third-order tensors
+
+# What is difference between the gradient, directional derivative, the derivative, the Jacobian, the total differential, the directional derivative, the partial derivative, and Frechet derivative, and the Hessian?
+
 # The perturbation theory
