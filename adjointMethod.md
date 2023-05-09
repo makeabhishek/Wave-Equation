@@ -31,5 +31,6 @@ In one variable functions you only need the derivative to know how a function is
 In a rectangular reference frame, gradient is a vector field, whose three Cartesian components are partial derivatives of a scalar field with respect to cartesian components of location. Gradient of the vector field is the second-order tensor, for example, gradient of velocity in fluid mechanics. Gradients of strain tensor and stress tensor are third-order tensors
 
 # What is difference between the gradient, directional derivative, the derivative, the Jacobian, the total differential, the directional derivative, the partial derivative, and Frechet derivative, and the Hessian?
+https://math.stackexchange.com/questions/1067149/what-is-difference-between-all-of-these-derivatives 
 
 # The perturbation theory
