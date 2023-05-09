@@ -1,5 +1,5 @@
 # Adjoint state method
-To obtain the value of the adjoint state utilizing the boundary condition (BC) involves a multi-step process that has a significant impact on the final outcome. To begin with, it is essential to derive the adjoint equation from the forward problem and apply the appropriate boundary conditions for deriving the adjoint state. Here are the steps that need to be followed:
+To obtain the value of the adjoint state utilizing the boundary condition (BC) involves a multi-step process that has a significant impact on the final outcome. It is crucial to keep in mind that the key to obtain the adjoint state is to derive the adjoint equation and apply the appropriate initial and boundary conditions. To begin with, it is essential to derive the adjoint equation from the forward problem and apply the appropriate boundary conditions for deriving the adjoint state. Here are the steps that need to be followed:
 
 ### Derive the adjoint equation: 
 Starting from the forward problem, which could be the wave equation or any other relevant problem, the adjoint equation can be derived. This is achieved by taking the derivative of the forward problem concerning the model parameters and subsequently applying the adjoint operator. It is crucial to note that the adjoint equation possesses a structure similar to the forward problem. The only difference is that the time is reversed, and a new source term, which is derived from the misfit function, is added.
@@ -12,8 +12,6 @@ In the same manner as the forward problem, the adjoint equation requires boundar
 
 ### Solve the adjoint equation: 
 With the adjoint equation, initial condition, and boundary conditions properly defined, the next step involves solving the adjoint equation. This can be accomplished through various numerical methods such as finite differences, finite elements, or spectral methods. Solving the adjoint equation enables the derivation of the adjoint state, which can be further used to compute the gradient of the objective function concerning the model parameters.
-
-It is crucial to keep in mind that the steps outlined above may vary depending on the problem, the forward model, and the numerical methods used. The key to obtaining the adjoint state is to derive the adjoint equation and apply the appropriate initial and boundary conditions.
 
 # Taylor Series
 Taylor's theorem (actually discovered first by Gregory) states that any function satisfying certain conditions can be expressed as a Taylor series. Taylor series is a series expansion of a function about a point. \
