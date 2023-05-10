@@ -48,6 +48,30 @@ $F(u, m)=0 \rightarrow \frac{\partial F}{\partial u}\delta u =- \frac{\partial F
 In the linear case: $F(u, m)=u-Am$ \
 $\delta u = A\delta m$ \
 
+### What is gradient of function ($\nabla$)
+If a function is defined as $f(x\_1,x\_2)=x\_1^2 + x\_2^2$, what will be its gradient $\nabla f = ?$. Before jumping into gradient lets see the **derivatives** of a function. Lets assume a function $f(x) = x^2$, where $x$ is a scalar. This is a quadratic function which is like a parabolic curve if we plot it. If we take the derivative of this function w.r.t. $x$. In the figure $x$ is represented by $\theta$ \
+$f'(x)=\frac{df(x)}{dx}=2x$. The derivative or slope of $f(x)$, whcih is a straight line, is zero at $x=0$, it is positive for $x>0$ and negative for $x<0$.
+
+![x2](https://github.com/makeabhishek/Wave-Equation/assets/47937684/3c97c148-3178-4d3b-abe2-9879cb405039)
+
+Now we take a look of Gradient: Gradient captures all partial derivatives of a multivariable function. In above derivatives we talk about a fucntion which has only one scalar variable. Now we have two variable, $x\_1$ and $x\_2$. i.e., $X= [x\_1 x\_2]^T$, column vector. Fint the inner product 
+$f(x)=X^TX = [x\_1 x\_2]^T [x\_1 x\_2]^T$, where the dimension of $f(x)$ will be 1x2 and 2x1, so if we do the multiplication we will get $x\_1^2 + x\_2^2$. So in some sense this function  square each element of multivariable fiucntion and sum together. 
+
+As we have two variables, we have to find partial derivative as we have multi-variable funciton. So we have a function $X = x\_1^2 + x\_2^2$ Then partial derivative w.r.t. $x\_1$ and $x\_2$. $\frac{\partial f}{\partial x\_1}=2x\_1$ and $\frac{\partial f}{\partial x\_2}=2x\_2$ 
+
+To find the gradient $\nabla f$, we need to put all the partial derivatives together. As the funciton $f(x\_1,x\_2)$ has two varaibles, gradient will also have two partail derivatives. $\nabla f = [\frac{\partial f}{\partial x\_1} \quad  \frac{\partial f}{\partial x\_2}]^T$ $=$ $\nabla f = [2x\_1 2x\_2]^T = 2[x\_1 x\_2]^T= 2X$. It measn that the gradient is simple $2X$. \
+
+**Why gradient is useful?** In above case for a function $f(x)=X$, whcih has two variable, its gradeint is simply $2X$, so it is easy to extend this concept to n dimentional variable problem. Lets take a more complex function. $f(x)=(x\_1 + 2x\_2^3)^2$. Using the chain rule
+$\frac{\partial f}{\partial x\_1} = 2(x\_1 + 2x\_2^3) \frac{\partial}{\partial x\_1}(x\_1 + 2x\_2^3) = 2(x\_1 + 2x\_2^3)^2$ 
+
+$\frac{\partial f}{\partial x\_2} = 2(x\_1 + 2x\_2^3) \frac{\partial}{\partial x\_2}(x\_1 + 2x\_2^3) = 12x\_2^2(x\_1 + 2x\_2^3)$ 
+
+$\nabla f = [2(x\_1 + 2x\_2^3)^2 \quad  12x\_2^2(x\_1 + 2x\_2^3)]^T$
+
+### Array, Norm, and Dot Product with NumPy
+
+
+
 
 
 
