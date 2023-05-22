@@ -99,17 +99,19 @@ there would be some directin which are favourable and some should be avaoided be
 The image shows the countour lines of the objective function. One idea would be to move in the sttepest descent direction of the objective funstion. So it is the negative gradient of the objective funtion w.r.t. two material parameters. So the intutive answer would be to walk along gradinet of the objective funetion. 
 
 ## How to find optimum search direction?
-We simply take a look, how the objective function in the visicinity of our intial model changes when we add a small perturbation $\delta m_1$ in any direction. Now we are assuming that these perturbations are very small, we can expand this expression in to a Taylor series. So we can approximate this by the value of the objective function at our starting point $E m_1$ plus the linear term (\delta m_1) of the Taylor series expansion, i.e. $\delta m_1 \frac{\partial E}{\partial m}_1$ and the gradient of objecive function w.r.t. material parametes plus quadratic term. In the expression $\delta m_1$ is a vector so quadratic term is written in term of transpose multiplied by second derivative of objective function w.r.t. material parameters.
+We simply take a look, how the objective function in the visicinity of our intial model changes when we add a small perturbation $\delta m_1$ in any direction. Now we are assuming that these perturbations are very small, we can expand this expression in to a Taylor series. So we can approximate this by the value of the objective function at our starting point $E m\_1$ plus the linear term (\delta m\_1) of the Taylor series expansion, i.e. $\delta m\_1 \frac{\partial E}{\partial m}\_1$ and the gradient of objecive function w.r.t. material parametes plus quadratic term. In the expression $\delta m_1$ is a vector so quadratic term is written in term of transpose multiplied by second derivative of objective function w.r.t. material parameters.
 
-$E(m_1 + \delta m_1) \approx E(m_1) + \delta m_1 \delta m_1 \frac{\partial E}{\partial m}_1 + \frac{1}{2}\delta m_1^T H_1 \delta m_{1}$ So this is a Taylor expension in multiple dimensions.
+$E(m\_1 + \delta m\_1) \approx E(m\_1) + \delta m\_1 \delta m\_1 \frac{\partial E}{\partial m}\_1 + \frac{1}{2}\delta m\_1^T H_1 \delta m\_{1}$ 
 
-with the **Hessian** $H_{ij} = \frac{\partial^2 E}{\partial m_i \partial m_j}$.
+So this is a Taylor expension in multiple dimensions. with the **Hessian** 
+
+$H\_{ij} = \frac{\partial^2 E}{\partial m\_i \partial m\_j}$.
 
 Now, we have to find optimum search direction so, fisrt calculate the derivate of objective function w.r.t. search direction and set derivative equal to zero:
 
-$\frac{\partial E(m_1 +m_2)}{\partial \delta m_1} = 0 + \bigg( \frac{\partial E}{\partial m} \bigg)_1 + \frac{1}{2}*2*\delta m_1 H_1 =0$. This is a basic methodology to find minimum of a function. In this case it is objective funciton and the parameter that we want to minimise is the search direction $\delta m_1$. Rearranging the equationa and multiply both side by inverted Hessian, which leads to
+$\frac{\partial E(m_1 +m\_2)}{\partial \delta m\_1} = 0 + \bigg( \frac{\partial E}{\partial m} \bigg)\_1 + \frac{1}{2}*2*\delta m\_1 H_1 =0$. This is a basic methodology to find minimum of a function. In this case it is objective funciton and the parameter that we want to minimise is the search direction $\delta m\_1$. Rearranging the equationa and multiply both side by inverted Hessian, which leads to
 
-$\delta m_1 = - H_1^{-1} \bigg(\frac{\partial E}{\partial m}\bigg)_1$,
+$\delta m\_1 = - H\_1^{-1} \bigg(\frac{\partial E}{\partial m}\bigg)\_1$,
 
 where $(\frac{\partial E}{\partial m})_1$ denotes the gradient direction of the objective function and $H_1^{-1}$ is the inverse Hessian matrix. So finally $\delta m_1 $ is the optimum search direction according to taylor series expansion analysis. So the optimum search direction is what we almost guess. Our guess was tht it is a negative gradient of objective funtion w.r.t. material parameters and mathemativally it is shown. However, a better search direection would be if we multiply the steepest descent with inverse Hessian. And this approach is called **Newton method**. As we can see from the Newton method figure, that we are not walking along the negative gradient direction, we are also using a little bit of the slope of the fucntion, whcih is described by the Hessian. **Newton method** $m_{n+1} = m_n - \mu_n H_n^{-1} \bigg( \frac{partial E}{\partial m}_n$ 
 
