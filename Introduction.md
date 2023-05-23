@@ -241,10 +241,11 @@ FWI is an iterative numerical optimisation method to mimisation of the data resi
 
 # Optimisation methods 
 ## Numerical Optimization Algorithms
-Optimization Algorithms are iterative techniques that follow the following fundamental steps: \
-  (+) Initialize with a guess of the decision variables $x$,\
-  (+) Iterate through the process of generating a list of improving estimates, \
-  (+) check whether the terminating conditions are met, and the estimates will be probably stop at the solution point $x^*$
+Optimization Algorithms are iterative techniques that follow the following fundamental steps: 
+
+      (+) Initialize with a guess of the decision variables $x$,\
+      (+) Iterate through the process of generating a list of improving estimates, \
+      (+) check whether the terminating conditions are met, and the estimates will be probably stop at the solution point $x^*$
 
 Most of the optimization strategies make use of either the objective function $f(x)$, the constraint functions and $g(x)$ and $h(x)$, the first or second derivatives of these said functions, information collected during previous iterations and/or local information gathered at the present point.
 
@@ -268,26 +269,26 @@ In the linear conjugate gradient method, the direction $\delta_j$ is a linear co
 $\delta\_j = \chi\_j \delta\_{j-1} - r\_j$
 
 ## Nonlinear Conjugate Gradient method 
-(1) Calculate the steepest descent direction: $\Delta x_n = -\bigg(\frac{\partial E(x,z)}{\partial m} \bigg)$
+      (1) Calculate the steepest descent direction: $\Delta x_n = -\bigg(\frac{\partial E(x,z)}{\partial m} \bigg)$
 
-(2) Compute the correction factor $\beta_n$. It can be obtained from different method:
+      (2) Compute the correction factor $\beta_n$. It can be obtained from different method:
 
-  (+) Fletcher-Reeves algorithm: $\beta_n^{FR}=\frac{\Delta x_n^T \Delta x_n}{\Delta x_{n-1}^T \Delta x_{n-1}}$. here multplication of $\Delta x_n^T$ and $\Delta x_n$, whcih is a square of steepest descent, gives a scalar and sum for all subsurface points.
-  
-  (+) Polak-Riebiere algorithm: $\beta_n^{PR}\frac{}{}$
-  
-  (+) Hestenes-Stiefel algorithm: $\beta_n^{HS}\frac{}{}$
-  
-  (+) Dai-Yuan algorithm: $\beta_n^{DY}\frac{}{}$  
- Popular choice $\beta_n = max{0, \beta_n^{PR}}$ which allows an automatic direction reset.  
-  
-  (+) Hager-Zhang algorithm:
-  
-(3) Update conjugate direction: $s_n = \Delta x_n + \beta_n s_{n-1}$. So here we are not simply using steepest descent direction $\Delta x_n$ but we are adding the additional term $\beta_n$ multiplied by previous search direction. At first iteration we use steepest descent direction, but all iterations greater than one, we can see that we are correcting the search direction using $\beta_n s_{n-1}$. Now if use the condition $\beta_n = max{0, \beta_n^{PR}}$, we can see that if $\beta$ becomes negative, which means zero we are only using steepest descent direction. It is refered to as automatic direction reset.
+        (+) Fletcher-Reeves algorithm: $\beta_n^{FR}=\frac{\Delta x_n^T \Delta x_n}{\Delta x_{n-1}^T \Delta x_{n-1}}$. here multplication of $\Delta x_n^T$ and $\Delta x_n$, whcih is a square of steepest descent, gives a scalar and sum for all subsurface points.
 
-(4) Estimate step length $\mu_n$
+        (+) Polak-Riebiere algorithm: $\beta_n^{PR}\frac{}{}$
 
-(5) Update material parameters: $m_{n+1} = m_n + \mu_n s_n$ . Updateing the model but not along steepest descent direction but along the modified new search direction. 
+        (+) Hestenes-Stiefel algorithm: $\beta_n^{HS}\frac{}{}$
+
+        (+) Dai-Yuan algorithm: $\beta_n^{DY}\frac{}{}$  
+       Popular choice $\beta_n = max{0, \beta_n^{PR}}$ which allows an automatic direction reset.  
+
+        (+) Hager-Zhang algorithm:
+
+      (3) Update conjugate direction: $s_n = \Delta x_n + \beta_n s_{n-1}$. So here we are not simply using steepest descent direction $\Delta x_n$ but we are adding the additional term $\beta_n$ multiplied by previous search direction. At first iteration we use steepest descent direction, but all iterations greater than one, we can see that we are correcting the search direction using $\beta_n s_{n-1}$. Now if use the condition $\beta_n = max{0, \beta_n^{PR}}$, we can see that if $\beta$ becomes negative, which means zero we are only using steepest descent direction. It is refered to as automatic direction reset.
+
+      (4) Estimate step length $\mu_n$
+
+      (5) Update material parameters: $m_{n+1} = m_n + \mu_n s_n$ . Updateing the model but not along steepest descent direction but along the modified new search direction. 
 
 This improves the convergence speed.
 
@@ -298,10 +299,10 @@ To overcome this problem there is a quasi-Newtom method, it is called l-BFGS. Th
 
 ### Quasi-Newton l-BFGS Method (loop-1)
 At iteration step n:
-(1) Compute the gradient $g_n = $
-(2)
-(3)
-(4)
+      (1) Compute the gradient $g_n = $
+      (2)
+      (3)
+      (4)
 
 ### Quasi-Newton l-BFGS Method (loop-2)
 
