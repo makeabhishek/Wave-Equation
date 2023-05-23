@@ -304,19 +304,20 @@ At iteration step n:
 (4)
 
 ### Quasi-Newton l-BFGS Method (loop-2)
-(1) Compute the Hessian $g_n = $
 
-(2) Compute $z =$
+    (1) Compute the Hessian $g_n = $
 
-(3) for i = n-m to n-1 do
-      $\beta_i = \rho_i y_i^T z$ 
-      
-      $z = z+ s_i(\alpha_i - \beta_i)$
-     end for
-     
-(4) H_n^{-1} g_n = z
+    (2) Compute $z =$
 
-(5) Update model $m_{n+1} = m_n - \mu_n H_n^-1 g_n$
+    (3) for i = n-m to n-1 do
+          $\beta_i = \rho_i y_i^T z$ 
+
+          $z = z+ s_i(\alpha_i - \beta_i)$
+         end for
+
+    (4) H_n^{-1} g_n = z
+
+    (5) Update model $m_{n+1} = m_n - \mu_n H_n^-1 g_n$
 
 There are other method like truncated newton method, which is better than quasi newton method.
 
