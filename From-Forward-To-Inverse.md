@@ -3,6 +3,15 @@ In this section we will discuss a little about the starting point of solving inv
 ## Motivation 
 
 ## History
+<!--
+[//]: ![](Images/hadamard.JPG width=300)
+-->
+
+<img src="Images/hadamard.JPG" alt="fishy" class="bg-primary" width="200px" name="The caption for my image">
+**
+
+
+
 
 ## Forward Problem
 
